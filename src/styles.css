@@ -199,16 +199,12 @@
   letter-spacing: -0.02em;
 }
 
-@utility text-gradient-hero {
-  background: linear-gradient(
-    100deg,
-    color-mix(in oklab, var(--primary) 92%, white 8%),
-    color-mix(in oklab, var(--primary) 55%, white 45%)
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+@utility text-hero-accent {
+  color: var(--primary);
+  background: none;
+  -webkit-text-fill-color: var(--primary);
 }
+
 
 @utility bg-gradient-ink {
   background: var(--gradient-ink);
