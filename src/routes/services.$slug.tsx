@@ -11,6 +11,7 @@ import {
 } from "@/components/site/ui";
 import { getService } from "@/data/services";
 import { getServiceDetail } from "@/data/details";
+import { getServiceImagery } from "@/data/imagery";
 import { coreLocations } from "@/data/locations";
 import { breadcrumbJsonLd, faqJsonLd, pageMeta, serviceJsonLd } from "@/lib/seo";
 
@@ -20,7 +21,7 @@ export const Route = createFileRoute("/services/$slug")({
     if (!service) throw notFound();
     const detail = getServiceDetail(params.slug);
     const faqs = [...service.faqs, ...(detail?.extraFaqs ?? [])];
-    return { service, detail, faqs };
+    return { service, detail, faqs, imagery: getServiceImagery(params.slug) };
   },
   head: ({ params, loaderData }) => {
     const service = loaderData?.service;
@@ -56,7 +57,7 @@ export const Route = createFileRoute("/services/$slug")({
 });
 
 function ServicePage() {
-  const { service, detail, faqs } = Route.useLoaderData();
+  const { service, detail, faqs, imagery } = Route.useLoaderData();
   const crumbs = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
@@ -90,8 +91,8 @@ function ServicePage() {
             </div>
           </div>
           <img
-            src={service.heroImage}
-            alt={service.heroAlt}
+            src={imagery.feature.src}
+            alt={imagery.feature.alt}
             width={900}
             height={1100}
             loading="lazy"
@@ -105,8 +106,8 @@ function ServicePage() {
         eyebrow={service.eyebrow}
         title={`Considering ${service.name.toLowerCase()} for your home?`}
         body={`Tell us which rooms you are working on and we will bring ${service.name.toLowerCase()} samples to your home, measure the openings and recommend the version that suits the light, privacy and budget you have in mind.`}
-        image={service.heroImage}
-        imageAlt={service.heroAlt}
+        image={imagery.cta.src}
+        imageAlt={imagery.cta.alt}
         imageSide="right"
         ctaLabel="Get a Free Consultation"
         secondary={{ label: "See all services", to: "/services" }}
