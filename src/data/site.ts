@@ -4,16 +4,16 @@
  * there is a single place to update business information.
  */
 
+import heroVideoAsset from "@/assets/hero-motorized-shades.mp4.asset.json";
+
 /**
  * HERO BACKGROUND VIDEO
  * ---------------------
- * Intentionally EMPTY. Paste your final hosted video URL (MP4/WebM) between the
- * quotes and the hero video layer activates automatically. While it is empty,
- * the hero falls back to the poster image below.
- *
- * Example: export const HERO_VIDEO_URL = "https://cdn.example.com/modushade-hero.mp4";
+ * A cinematic motorized-shade clip served from the project CDN. To swap in your
+ * own footage, replace the URL below with your hosted MP4 (and optionally add a
+ * WebM version). Leave it as an empty string to fall back to the poster image.
  */
-export const HERO_VIDEO_URL = "";
+export const HERO_VIDEO_URL: string = heroVideoAsset.url;
 
 /** Optional secondary source (e.g. a WebM version). Leave empty if unused. */
 export const HERO_VIDEO_URL_WEBM = "";

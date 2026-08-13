@@ -137,9 +137,9 @@ export function SectionHeading({
   align = "left",
   onDark = false,
 }: {
-  eyebrow?: string;
+  eyebrow?: string | undefined;
   title: string;
-  body?: string;
+  body?: string | undefined;
   align?: "left" | "center";
   onDark?: boolean;
 }) {

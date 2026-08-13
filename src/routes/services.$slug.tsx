@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ConsultationForm } from "@/components/site/ConsultationForm";
+import { DetailSections } from "@/components/site/DetailSections";
 import {
   BulletList,
   CtaSection,
@@ -9,6 +10,7 @@ import {
   SectionHeading,
 } from "@/components/site/ui";
 import { getService } from "@/data/services";
+import { getServiceDetail } from "@/data/details";
 import { coreLocations } from "@/data/locations";
 import { breadcrumbJsonLd, faqJsonLd, pageMeta, serviceJsonLd } from "@/lib/seo";
 
@@ -16,7 +18,9 @@ export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
     const service = getService(params.slug);
     if (!service) throw notFound();
-    return { service };
+    const detail = getServiceDetail(params.slug);
+    const faqs = [...service.faqs, ...(detail?.extraFaqs ?? [])];
+    return { service, detail, faqs };
   },
   head: ({ params, loaderData }) => {
     const service = loaderData?.service;
@@ -44,7 +48,7 @@ export const Route = createFileRoute("/services/$slug")({
       scripts: [
         breadcrumbJsonLd(crumbs),
         serviceJsonLd({ name: service.name, description: service.seoDescription, path }),
-        ...(service.faqs.length ? [faqJsonLd(service.faqs)] : []),
+        ...(loaderData.faqs.length ? [faqJsonLd(loaderData.faqs)] : []),
       ],
     };
   },
@@ -52,7 +56,7 @@ export const Route = createFileRoute("/services/$slug")({
 });
 
 function ServicePage() {
-  const { service } = Route.useLoaderData();
+  const { service, detail, faqs } = Route.useLoaderData();
   const crumbs = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
@@ -128,6 +132,9 @@ function ServicePage() {
         </div>
       </Section>
 
+      {detail ? <DetailSections sections={detail.sections} /> : null}
+
+
       <Section tone="sand">
         <SectionHeading eyebrow="Related" title="Often specified alongside." />
         <div className="mt-8 flex flex-wrap gap-3">
@@ -165,8 +172,12 @@ function ServicePage() {
         </div>
       </Section>
 
-      <FaqSection faqs={service.faqs} title={`${service.name}: your questions answered.`} />
-      <CtaSection />
+      <FaqSection faqs={faqs} title={`${service.name}: your questions answered.`} />
+      {detail?.cta ? (
+        <CtaSection title={detail.cta.title} body={detail.cta.body} />
+      ) : (
+        <CtaSection />
+      )}
     </>
   );
 }

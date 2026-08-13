@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ConsultationForm } from "@/components/site/ConsultationForm";
+import { DetailSections } from "@/components/site/DetailSections";
 import {
   BulletList,
   CtaSection,
@@ -10,6 +11,7 @@ import {
   SectionHeading,
 } from "@/components/site/ui";
 import { getLocation } from "@/data/locations";
+import { getLocationDetail } from "@/data/details";
 import { getService } from "@/data/services";
 import { breadcrumbJsonLd, faqJsonLd, pageMeta } from "@/lib/seo";
 
@@ -17,7 +19,9 @@ export const Route = createFileRoute("/service-areas/$slug")({
   loader: ({ params }) => {
     const location = getLocation(params.slug);
     if (!location) throw notFound();
-    return { location };
+    const detail = getLocationDetail(params.slug);
+    const faqs = [...location.faqs, ...(detail?.extraFaqs ?? [])];
+    return { location, detail, faqs };
   },
   head: ({ params, loaderData }) => {
     const location = loaderData?.location;
@@ -43,7 +47,7 @@ export const Route = createFileRoute("/service-areas/$slug")({
           { name: "Service areas", path: "/service-areas" },
           { name: location.name, path },
         ]),
-        ...(location.faqs.length ? [faqJsonLd(location.faqs)] : []),
+        ...(loaderData.faqs.length ? [faqJsonLd(loaderData.faqs)] : []),
       ],
     };
   },
@@ -51,7 +55,7 @@ export const Route = createFileRoute("/service-areas/$slug")({
 });
 
 function LocationPage() {
-  const { location } = Route.useLoaderData();
+  const { location, detail, faqs } = Route.useLoaderData();
   return (
     <>
       <PageHero
@@ -130,9 +134,11 @@ function LocationPage() {
         </div>
       </Section>
 
+      {detail ? <DetailSections sections={detail.sections} /> : null}
+
       <ReviewsSection limit={2} />
-      <FaqSection faqs={location.faqs} title={`${location.shortName}: common questions.`} />
-      <CtaSection />
+      <FaqSection faqs={faqs} title={`${location.shortName}: common questions.`} />
+      {detail?.cta ? <CtaSection title={detail.cta.title} body={detail.cta.body} /> : <CtaSection />}
     </>
   );
 }

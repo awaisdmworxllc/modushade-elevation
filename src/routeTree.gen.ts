@@ -15,8 +15,10 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
+import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as ServiceAreasIndexRouteImport } from './routes/service-areas.index'
 import { Route as ServiceAreasSlugRouteImport } from './routes/service-areas.$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -52,6 +54,11 @@ const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -60,6 +67,11 @@ const TermsRoute = TermsRouteImport.update({
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   id: '/projects/',
   path: '/projects/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
+  id: '/projects/$slug',
+  path: '/projects/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServiceAreasIndexRoute = ServiceAreasIndexRouteImport.update({
@@ -90,7 +102,9 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/service-areas/$slug': typeof ServiceAreasSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/projects/': typeof ProjectsIndexRoute
@@ -104,7 +118,9 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/service-areas/$slug': typeof ServiceAreasSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/projects': typeof ProjectsIndexRoute
@@ -119,7 +135,9 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/service-areas/$slug': typeof ServiceAreasSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/projects/': typeof ProjectsIndexRoute
@@ -135,7 +153,9 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faq'
     | '/privacy-policy'
+    | '/sitemap.xml'
     | '/terms'
+    | '/projects/$slug'
     | '/service-areas/$slug'
     | '/services/$slug'
     | '/projects/'
@@ -149,7 +169,9 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faq'
     | '/privacy-policy'
+    | '/sitemap.xml'
     | '/terms'
+    | '/projects/$slug'
     | '/service-areas/$slug'
     | '/services/$slug'
     | '/projects'
@@ -163,7 +185,9 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faq'
     | '/privacy-policy'
+    | '/sitemap.xml'
     | '/terms'
+    | '/projects/$slug'
     | '/service-areas/$slug'
     | '/services/$slug'
     | '/projects/'
@@ -178,7 +202,9 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
+  ProjectsSlugRoute: typeof ProjectsSlugRoute
   ServiceAreasSlugRoute: typeof ServiceAreasSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
@@ -230,6 +256,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -242,6 +275,13 @@ declare module '@tanstack/react-router' {
       path: '/projects'
       fullPath: '/projects/'
       preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/$slug': {
+      id: '/projects/$slug'
+      path: '/projects/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof ProjectsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/service-areas/': {
@@ -282,7 +322,9 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
+  ProjectsSlugRoute: ProjectsSlugRoute,
   ServiceAreasSlugRoute: ServiceAreasSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
