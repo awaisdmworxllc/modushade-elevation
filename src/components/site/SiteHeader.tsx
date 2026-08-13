@@ -55,7 +55,7 @@ export function SiteHeader() {
       </div>
 
       <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-lg">
-        <div className="container-page flex h-[4.75rem] items-center justify-between gap-5 lg:h-[5.5rem] xl:gap-8">
+        <div className="container-page flex h-[4.75rem] items-center justify-between gap-4 lg:h-[5.5rem] xl:gap-6">
           {/* Zone 1 — brand */}
           <Link
             to="/"
@@ -81,13 +81,16 @@ export function SiteHeader() {
 
           {/* Zone 2 — navigation */}
           <nav
-            className="hidden items-center gap-x-6 xl:flex xl:gap-x-7"
+            className="hidden items-center gap-x-4 xl:flex xl:gap-x-5 2xl:gap-x-6"
             aria-label="Main navigation"
           >
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/about">About</NavLink>
+
             <div className="group relative">
               <Link
                 to="/services"
-                className="flex items-center gap-1 text-[0.8rem] font-bold tracking-[0.06em] uppercase transition hover:text-primary"
+                className="flex items-center gap-1 text-[0.78rem] font-bold tracking-[0.04em] uppercase transition hover:text-primary"
               >
                 Services <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
               </Link>
@@ -138,7 +141,7 @@ export function SiteHeader() {
             <div className="group relative">
               <Link
                 to="/service-areas"
-                className="flex items-center gap-1 text-[0.8rem] font-bold tracking-[0.06em] uppercase transition hover:text-primary"
+                className="flex items-center gap-1 text-[0.78rem] font-bold tracking-[0.04em] uppercase transition hover:text-primary"
               >
                 Areas <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
               </Link>
@@ -167,7 +170,6 @@ export function SiteHeader() {
               </div>
             </div>
 
-            <NavLink to="/about">About</NavLink>
             <NavLink to="/contact">Contact</NavLink>
           </nav>
 
@@ -346,7 +348,7 @@ export function SiteHeader() {
 }
 
 function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
-  const cls = "text-[0.8rem] font-bold tracking-[0.06em] uppercase transition hover:text-primary";
+  const cls = "text-[0.78rem] font-bold tracking-[0.04em] uppercase transition hover:text-primary";
   return (
     <Link
       to={to}
