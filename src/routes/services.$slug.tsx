@@ -48,7 +48,7 @@ export const Route = createFileRoute("/services/$slug")({
       scripts: [
         breadcrumbJsonLd(crumbs),
         serviceJsonLd({ name: service.name, description: service.seoDescription, path }),
-        ...(service.faqs.length ? [faqJsonLd(service.faqs)] : []),
+        ...(loaderData.faqs.length ? [faqJsonLd(loaderData.faqs)] : []),
       ],
     };
   },
