@@ -60,10 +60,11 @@ function HomePage() {
         <div className="container-page relative py-20 lg:py-28">
           <div className="max-w-3xl animate-rise text-ink-foreground">
             <p className="eyebrow">{site.serviceAreaShort}</p>
-            <h1 className="display-xl mt-5">
+            <h1 className="display-xl mt-5 text-ink-foreground">
               Premium custom window treatments.{" "}
-              <span className="text-gradient-hero">Without the premium price.</span>
+              <span className="text-hero-accent">Without the premium price.</span>
             </h1>
+
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink-foreground/85 sm:text-lg">
               Motorized shades, blinds and made-to-measure drapery — recommended honestly,
               measured precisely and installed by our own team across Northern New Jersey and New
