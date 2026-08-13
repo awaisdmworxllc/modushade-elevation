@@ -24,8 +24,6 @@ export const serviceDetailsB: ServiceDetail[] = [
           "Trim and banding pick up other finishes nearby",
           "Works as the single decorative element in a minimal room",
         ],
-        image: { src: "/images/fabrics.jpg", alt: "Designer fabric swatches used for custom roman shades" },
-        imageSide: "right",
         tone: "paper",
       },
       {
@@ -150,8 +148,6 @@ export const serviceDetailsB: ServiceDetail[] = [
         body: [
           "Because the vanes are fabric, not vinyl or aluminum, the light that comes through even when they're closed is diffused rather than blocked in hard stripes. That soft glow is the main reason clients choose sheer shades over a horizontal blind for formal rooms.",
         ],
-        image: { src: "/images/layered-coverings.jpg", alt: "Sheer shade vanes filtering soft daylight in a formal room" },
-        imageSide: "left",
         tone: "sand",
       },
       {
@@ -223,8 +219,6 @@ export const serviceDetailsB: ServiceDetail[] = [
           "A decorative rod with finials becomes part of the room's design and suits pinch or euro pleats. A track is built to be concealed — in a recessed pocket, behind a fascia, or simply painted to match the ceiling — and is the right choice for ripple fold or any run that needs to disappear.",
           "We choose the hardware and the pleat style together, since some pleats only work correctly on one or the other.",
         ],
-        image: { src: "/images/drapery.jpg", alt: "Drapery hardware and pleated panels on a rod beside a window" },
-        imageSide: "right",
         tone: "sand",
       },
       {
@@ -312,8 +306,6 @@ export const serviceDetailsB: ServiceDetail[] = [
         body: [
           "Floor-to-ceiling glass, corner windows and sliding doors are exactly where hand-drawn panels start to fail — the fabric drags, the leading edge falls behind, or the window is simply too wide to reach without walking its length. A motorized track spans the full run in one continuous piece of hardware and moves the whole width evenly.",
         ],
-        image: { src: "/images/waterfront-highrise.jpg", alt: "Wide span of motorized curtains across floor-to-ceiling glass" },
-        imageSide: "left",
         tone: "sand",
       },
       {
@@ -410,8 +402,6 @@ export const serviceDetailsB: ServiceDetail[] = [
         body: [
           "Exterior mesh fabrics are built to resist UV breakdown, shed water and hold their tension outdoors season after season. Openness factor controls how much heat, glare and insect activity the fabric screens versus how much view and airflow it keeps — a decision we make based on the exposure of your specific patio or porch.",
         ],
-        image: { src: "/images/nj-home.jpg", alt: "Home patio suited to an exterior motorized shade" },
-        imageSide: "right",
         tone: "ink",
       },
       {

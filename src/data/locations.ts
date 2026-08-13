@@ -256,7 +256,7 @@ export const locations: Location[] = [
       "Custom motorized shades, zebra shades and blackout shades for Fort Lee apartments and homes. Free in-home consultation and professional installation, minutes away in Cresskill.",
     h1: "Window treatments in Fort Lee, NJ",
     lead: "High-rise glass with Hudson and skyline views, plus quiet residential streets — two very different window briefs in one town, ten minutes from us.",
-    heroImage: "/images/nyc-apartment.jpg",
+    heroImage: "/images/gen/fort-lee-nj-hero.jpg",
     heroAlt: "High-rise apartment window overlooking the Hudson from Fort Lee",
     context: [
       "Fort Lee is one of the most apartment-dense towns in Bergen County, and much of that housing looks east over the Hudson toward Manhattan. Those windows get strong morning sun and a view worth protecting, which usually points to solar screen or zebra shades rather than anything heavy.",
@@ -346,7 +346,7 @@ export const locations: Location[] = [
       "Motorized and zebra shades for Edgewater waterfront condos and townhomes. Free in-home consultation, careful measuring and professional installation.",
     h1: "Window treatments in Edgewater, NJ",
     lead: "Waterfront condos and townhomes with large west and east glass — glare control that keeps the river and skyline in view.",
-    heroImage: "/images/waterfront-highrise.jpg",
+    heroImage: "/images/gen/edgewater-nj-hero.jpg",
     heroAlt: "Edgewater waterfront residential building with large windows",
     context: [
       "Edgewater living is defined by the waterfront: wide glass, strong reflected light off the river, and views most homeowners are not willing to trade away. Solar screen rollers and zebra shades handle exactly that combination.",
@@ -481,7 +481,7 @@ export const locations: Location[] = [
       "Custom shades, blinds and drapery for Yonkers homes and apartments, including motorized options for tall and hard-to-reach windows.",
     h1: "Window treatments in Yonkers, NY",
     lead: "River-facing apartments and hillside houses — two exposures that both benefit from getting the fabric choice right.",
-    heroImage: "/images/hillside-homes.jpg",
+    heroImage: "/images/gen/yonkers-ny-hero.jpg",
     heroAlt: "Hillside homes above the Hudson in Yonkers, New York",
     context: [
       "Yonkers sits on a slope above the Hudson, which means a lot of homes get long, low afternoon light and reflected glare off the water. Solar screen and light filtering fabrics handle that better than heavier treatments.",
