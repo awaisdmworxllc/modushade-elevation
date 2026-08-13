@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ConsultationForm } from "@/components/site/ConsultationForm";
+import { VisualCta } from "@/components/site/VisualCta";
 import { DetailSections } from "@/components/site/DetailSections";
 import {
   BulletList,
@@ -86,12 +86,29 @@ function LocationPage() {
               </div>
             </div>
           </div>
-          <ConsultationForm
-            defaultLocation={location.name}
-            formName={`area_${location.slug}`}
+          <img
+            src={location.heroImage}
+            alt={location.heroAlt}
+            width={900}
+            height={1100}
+            loading="lazy"
+            decoding="async"
+            className="h-full min-h-[22rem] w-full rounded-3xl object-cover shadow-elegant"
           />
         </div>
       </Section>
+
+      <VisualCta
+        eyebrow={`Serving ${location.shortName}`}
+        title={`Talk to ModuShade about your ${location.shortName} windows.`}
+        body={`We bring samples to ${location.shortName} homes, measure every opening on site and install with our own team — so you get one clear recommendation instead of a catalogue.`}
+        image={location.heroImage}
+        imageAlt={location.heroAlt}
+        imageSide="left"
+        ctaLabel="Get a Free Consultation"
+        secondary={{ label: "All service areas", to: "/service-areas" }}
+        trackingLocation={`area_${location.slug}_cta`}
+      />
 
       <Section tone="sand">
         <SectionHeading
