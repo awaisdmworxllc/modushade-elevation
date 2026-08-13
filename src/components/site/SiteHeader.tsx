@@ -1,11 +1,17 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, Phone, X, ChevronDown } from "lucide-react";
+import { Menu, MessageCircle, Phone, X, ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { services, serviceGroups } from "@/data/services";
 import { locations } from "@/data/locations";
 import { site } from "@/data/site";
 import { trackPhoneClick, trackWhatsAppClick, trackEmailClick } from "@/lib/analytics";
 
+/**
+ * Header layout is deliberately balanced in three zones:
+ *   logo (fixed)  ·  navigation (centered, flexible)  ·  contact CTAs (fixed)
+ * so adding the WhatsApp CTA does not crowd the navigation. Below `xl` the
+ * contact cluster progressively collapses to icons, then to the mobile sheet.
+ */
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
@@ -18,51 +24,74 @@ export function SiteHeader() {
 
   return (
     <>
-      <div className="bg-ink text-ink-foreground">
-        <div className="container-page flex flex-wrap items-center justify-center gap-x-4 gap-y-1 py-2 text-[0.68rem] tracking-[0.16em] uppercase sm:justify-between">
-          <p className="text-center opacity-80">
+      {/* Utility bar — quiet, informational, hidden on small screens to keep the mobile header airy */}
+      <div className="hidden bg-ink text-ink-foreground md:block">
+        <div className="container-page flex items-center justify-between gap-6 py-2.5 text-[0.66rem] font-semibold tracking-[0.18em] uppercase">
+          <p className="opacity-75">
             Complimentary in-home design consultation
-            <span className="mx-2 text-primary">•</span>
+            <span className="mx-2.5 text-primary">•</span>
             {site.serviceAreaShort}
           </p>
           <p className="flex items-center gap-3">
             <a
-              href={site.phoneHref}
-              onClick={() => trackPhoneClick("topbar")}
-              className="hover:text-primary"
+              href={site.emailHref}
+              onClick={() => trackEmailClick("topbar")}
+              className="tracking-[0.12em] normal-case opacity-80 transition hover:text-primary hover:opacity-100"
             >
-              {site.phone}
+              {site.email}
             </a>
             <span className="text-primary">•</span>
             <a
-              href={site.emailHref}
-              onClick={() => trackEmailClick("topbar")}
-              className="hover:text-primary"
+              href={site.whatsapp}
+              target="_blank"
+              rel="noopener"
+              onClick={() => trackWhatsAppClick("topbar")}
+              className="opacity-80 transition hover:text-primary hover:opacity-100"
             >
-              {site.email}
+              WhatsApp
             </a>
           </p>
         </div>
       </div>
 
       <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-lg">
-        <div className="container-page flex h-18 items-center gap-4 py-3">
-          <Link to="/" className="flex shrink-0 items-center gap-2.5" aria-label="ModuShade home">
-            <img src="/logo.svg" alt="" width={38} height={38} className="h-9 w-9 rounded-lg" />
-            <span className="text-[0.95rem] font-black tracking-[0.16em]">MODUSHADE</span>
+        <div className="container-page flex h-[4.75rem] items-center justify-between gap-5 lg:h-[5.5rem] xl:gap-8">
+          {/* Zone 1 — brand */}
+          <Link
+            to="/"
+            className="flex shrink-0 items-center gap-3"
+            aria-label="ModuShade — home"
+          >
+            <img
+              src="/logo.svg"
+              alt=""
+              width={44}
+              height={44}
+              className="h-10 w-10 rounded-xl lg:h-11 lg:w-11"
+            />
+            <span className="leading-none">
+              <span className="block text-[1.05rem] font-black tracking-[0.2em] lg:text-[1.15rem]">
+                MODUSHADE
+              </span>
+              <span className="mt-1.5 hidden text-[0.58rem] font-semibold tracking-[0.22em] uppercase text-muted-foreground lg:block">
+                Custom Window Treatments
+              </span>
+            </span>
           </Link>
 
-          <nav className="ml-auto hidden items-center gap-6 lg:flex" aria-label="Main navigation">
-            <NavLink to="/">Home</NavLink>
-
+          {/* Zone 2 — navigation */}
+          <nav
+            className="hidden items-center gap-x-6 xl:flex xl:gap-x-7"
+            aria-label="Main navigation"
+          >
             <div className="group relative">
               <Link
                 to="/services"
-                className="flex items-center gap-1 text-sm font-bold hover:text-primary"
+                className="flex items-center gap-1 text-[0.8rem] font-bold tracking-[0.06em] uppercase transition hover:text-primary"
               >
                 Services <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
               </Link>
-              <div className="invisible absolute left-1/2 top-full z-50 w-[46rem] -translate-x-1/2 pt-4 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+              <div className="invisible absolute left-1/2 top-full z-50 w-[46rem] -translate-x-1/2 pt-5 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                 <div className="rounded-2xl border border-border bg-popover p-6 shadow-elegant">
                   <div className="grid grid-cols-3 gap-6">
                     {serviceGroups.map((group) => (
@@ -76,7 +105,7 @@ export function SiteHeader() {
                                 <Link
                                   to="/services/$slug"
                                   params={{ slug: s.slug }}
-                                  className={`block text-sm hover:text-primary ${
+                                  className={`block text-sm transition hover:text-primary ${
                                     s.slug === "motorized-shades" ? "font-bold" : ""
                                   }`}
                                 >
@@ -103,16 +132,17 @@ export function SiteHeader() {
               </div>
             </div>
 
+            <NavLink to="/services/motorized-shades">Motorized</NavLink>
             <NavLink to="/projects">Projects</NavLink>
 
             <div className="group relative">
               <Link
                 to="/service-areas"
-                className="flex items-center gap-1 text-sm font-bold hover:text-primary"
+                className="flex items-center gap-1 text-[0.8rem] font-bold tracking-[0.06em] uppercase transition hover:text-primary"
               >
-                Service Areas <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
+                Areas <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
               </Link>
-              <div className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-4 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+              <div className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-5 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                 <div className="rounded-2xl border border-border bg-popover p-5 shadow-elegant">
                   <ul className="space-y-2">
                     {locations.map((l) => (
@@ -120,7 +150,7 @@ export function SiteHeader() {
                         <Link
                           to="/service-areas/$slug"
                           params={{ slug: l.slug }}
-                          className="block text-sm hover:text-primary"
+                          className="block text-sm transition hover:text-primary"
                         >
                           {l.name}
                         </Link>
@@ -138,29 +168,44 @@ export function SiteHeader() {
             </div>
 
             <NavLink to="/about">About</NavLink>
-            <NavLink to="/faq">FAQ</NavLink>
             <NavLink to="/contact">Contact</NavLink>
           </nav>
 
-          <div className="ml-auto flex items-center gap-2 lg:ml-4">
+          {/* Zone 3 — contact CTAs */}
+          <div className="flex shrink-0 items-center gap-2.5 sm:gap-3">
+            <a
+              href={site.whatsapp}
+              target="_blank"
+              rel="noopener"
+              onClick={() => trackWhatsAppClick("header")}
+              aria-label="Message ModuShade on WhatsApp"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-border px-3.5 text-[0.8rem] font-bold transition hover:border-primary hover:text-primary lg:px-5"
+            >
+              <MessageCircle className="h-[1.05rem] w-[1.05rem]" aria-hidden="true" />
+              <span className="hidden lg:inline">WhatsApp</span>
+            </a>
+
             <a
               href={site.phoneHref}
               onClick={() => trackPhoneClick("header")}
-              className="hidden items-center gap-2 text-sm font-bold hover:text-primary md:flex"
+              aria-label={`Call ModuShade on ${site.phone}`}
+              className="hidden h-11 items-center justify-center gap-2 rounded-full border border-border px-3.5 text-[0.8rem] font-bold transition hover:border-primary hover:text-primary sm:inline-flex lg:px-5"
             >
-              <Phone className="h-4 w-4" aria-hidden="true" />
-              {site.phone}
+              <Phone className="h-[1.05rem] w-[1.05rem]" aria-hidden="true" />
+              <span className="hidden 2xl:inline">{site.phone}</span>
             </a>
+
             <Link
               to="/contact"
-              className="hidden rounded-full bg-primary px-4 py-2.5 text-xs font-bold text-primary-foreground shadow-lift transition hover:-translate-y-0.5 sm:inline-flex"
+              className="hidden h-11 items-center rounded-full bg-primary px-5 text-[0.8rem] font-bold text-primary-foreground shadow-lift transition hover:-translate-y-0.5 md:inline-flex xl:px-6"
             >
-              Get a Free Consultation
+              Free Consultation
             </Link>
+
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border transition hover:border-primary xl:hidden"
               aria-label="Open navigation menu"
               aria-expanded={open}
             >
@@ -171,13 +216,13 @@ export function SiteHeader() {
       </header>
 
       {open ? (
-        <div className="fixed inset-0 z-[60] overflow-y-auto bg-background lg:hidden">
-          <div className="container-page flex h-18 items-center justify-between py-3">
-            <span className="text-[0.95rem] font-black tracking-[0.16em]">MODUSHADE</span>
+        <div className="fixed inset-0 z-[60] overflow-y-auto bg-background xl:hidden">
+          <div className="container-page flex h-[4.75rem] items-center justify-between">
+            <span className="text-[1.05rem] font-black tracking-[0.2em]">MODUSHADE</span>
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border"
               aria-label="Close navigation menu"
             >
               <X className="h-5 w-5" aria-hidden="true" />
@@ -270,20 +315,27 @@ export function SiteHeader() {
                 Get a Free Consultation
               </Link>
               <a
-                href={site.phoneHref}
-                onClick={() => trackPhoneClick("mobile_menu")}
-                className="block rounded-full border border-border px-6 py-4 text-center text-sm font-bold"
-              >
-                Call {site.phone}
-              </a>
-              <a
                 href={site.whatsapp}
                 target="_blank"
                 rel="noopener"
                 onClick={() => trackWhatsAppClick("mobile_menu")}
-                className="block rounded-full border border-border px-6 py-4 text-center text-sm font-bold"
+                className="flex items-center justify-center gap-2 rounded-full border border-border px-6 py-4 text-center text-sm font-bold"
               >
-                WhatsApp
+                <MessageCircle className="h-4 w-4" aria-hidden="true" /> WhatsApp Leo
+              </a>
+              <a
+                href={site.phoneHref}
+                onClick={() => trackPhoneClick("mobile_menu")}
+                className="flex items-center justify-center gap-2 rounded-full border border-border px-6 py-4 text-center text-sm font-bold"
+              >
+                <Phone className="h-4 w-4" aria-hidden="true" /> Call {site.phone}
+              </a>
+              <a
+                href={site.emailHref}
+                onClick={() => trackEmailClick("mobile_menu")}
+                className="block px-6 pt-1 text-center text-sm font-semibold text-muted-foreground"
+              >
+                {site.email}
               </a>
             </div>
           </nav>
@@ -294,11 +346,12 @@ export function SiteHeader() {
 }
 
 function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
+  const cls = "text-[0.8rem] font-bold tracking-[0.06em] uppercase transition hover:text-primary";
   return (
     <Link
       to={to}
-      className="text-sm font-bold hover:text-primary"
-      activeProps={{ className: "text-sm font-bold text-primary" }}
+      className={cls}
+      activeProps={{ className: `${cls} text-primary` }}
       activeOptions={{ exact: to === "/" }}
     >
       {children}
