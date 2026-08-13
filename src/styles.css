@@ -201,10 +201,10 @@
 }
 
 @utility text-hero-accent {
-  /* Solid brand red, slightly lifted for clean legibility on dark footage */
-  color: oklch(0.6 0.203 25.5);
+  /* Same solid brand red as buttons/header CTA */
+  color: var(--primary);
   background: none;
-  -webkit-text-fill-color: oklch(0.6 0.203 25.5);
+  -webkit-text-fill-color: var(--primary);
 }
 
 
