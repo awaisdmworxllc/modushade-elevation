@@ -12,6 +12,7 @@ import {
 } from "@/components/site/ui";
 import { getLocation } from "@/data/locations";
 import { getLocationDetail } from "@/data/details";
+import { getLocationImagery } from "@/data/imagery";
 import { getService } from "@/data/services";
 import { breadcrumbJsonLd, faqJsonLd, pageMeta } from "@/lib/seo";
 
@@ -21,7 +22,7 @@ export const Route = createFileRoute("/service-areas/$slug")({
     if (!location) throw notFound();
     const detail = getLocationDetail(params.slug);
     const faqs = [...location.faqs, ...(detail?.extraFaqs ?? [])];
-    return { location, detail, faqs };
+    return { location, detail, faqs, imagery: getLocationImagery(params.slug) };
   },
   head: ({ params, loaderData }) => {
     const location = loaderData?.location;
@@ -55,7 +56,7 @@ export const Route = createFileRoute("/service-areas/$slug")({
 });
 
 function LocationPage() {
-  const { location, detail, faqs } = Route.useLoaderData();
+  const { location, detail, faqs, imagery } = Route.useLoaderData();
   return (
     <>
       <PageHero
@@ -87,8 +88,8 @@ function LocationPage() {
             </div>
           </div>
           <img
-            src={location.heroImage}
-            alt={location.heroAlt}
+            src={imagery.feature.src}
+            alt={imagery.feature.alt}
             width={900}
             height={1100}
             loading="lazy"
@@ -102,8 +103,8 @@ function LocationPage() {
         eyebrow={`Serving ${location.shortName}`}
         title={`Talk to ModuShade about your ${location.shortName} windows.`}
         body={`We bring samples to ${location.shortName} homes, measure every opening on site and install with our own team — so you get one clear recommendation instead of a catalogue.`}
-        image={location.heroImage}
-        imageAlt={location.heroAlt}
+        image={imagery.cta.src}
+        imageAlt={imagery.cta.alt}
         imageSide="left"
         ctaLabel="Get a Free Consultation"
         secondary={{ label: "All service areas", to: "/service-areas" }}

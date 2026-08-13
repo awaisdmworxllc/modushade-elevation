@@ -63,7 +63,7 @@ function ProjectPage() {
         eyebrow={`${project.product} · ${project.location}`}
         title={project.title}
         lead={project.summary}
-        image={hero?.src ?? "/images/installation.jpg"}
+        image={hero?.src ?? "/images/gen/measuring-team.jpg"}
         imageAlt={hero?.alt ?? `${project.product} installed in ${project.location}`}
         breadcrumbs={[
           { name: "Home", path: "/" },

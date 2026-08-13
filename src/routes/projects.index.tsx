@@ -16,7 +16,7 @@ export const Route = createFileRoute("/projects/")({
       description:
         "Real ModuShade installations across Bergen County, Northern NJ, Hudson County and New York — motorized shades, blinds and custom drapery.",
       path: "/projects",
-      image: "/images/layered-coverings.jpg",
+      image: "/images/installation.jpg",
     }),
     scripts: [breadcrumbJsonLd(crumbs)],
   }),
@@ -30,7 +30,7 @@ function ProjectsPage() {
         eyebrow="Projects"
         title="Our work, window by window"
         lead="Completed installations with the reasoning behind each specification — what the room needed, what we recommended and how it was installed."
-        image="/images/layered-coverings.jpg"
+        image="/images/installation.jpg"
         imageAlt="Layered shades and drapery installed across a residential living space"
         breadcrumbs={crumbs}
       />
