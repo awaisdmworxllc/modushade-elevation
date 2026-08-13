@@ -201,10 +201,12 @@
 }
 
 @utility text-hero-accent {
-  color: var(--primary);
+  /* Solid brand red, slightly lifted for clean legibility on dark footage */
+  color: oklch(0.68 0.21 18);
   background: none;
-  -webkit-text-fill-color: var(--primary);
+  -webkit-text-fill-color: oklch(0.68 0.21 18);
 }
+
 
 
 @utility bg-gradient-ink {
