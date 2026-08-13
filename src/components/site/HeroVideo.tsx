@@ -78,7 +78,7 @@ export function HeroVideo({
   const reveal = () => setReady(true);
 
   return (
-    <div ref={wrapRef} data-hero-url={HERO_VIDEO_URL || "EMPTY"} data-hero-enabled={String(enabled)} className="absolute inset-0 overflow-hidden bg-ink">
+    <div ref={wrapRef} className="absolute inset-0 overflow-hidden bg-ink">
       <img
         src={posterUrl}
         alt={posterAlt}
