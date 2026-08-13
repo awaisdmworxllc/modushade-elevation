@@ -56,7 +56,7 @@ export const Route = createFileRoute("/services/$slug")({
 });
 
 function ServicePage() {
-  const { service } = Route.useLoaderData();
+  const { service, detail, faqs } = Route.useLoaderData();
   const crumbs = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
