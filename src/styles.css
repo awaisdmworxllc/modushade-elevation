@@ -107,7 +107,7 @@
 
   --gradient-ink: linear-gradient(160deg, var(--ink) 0%, var(--ink-soft) 100%);
   --shadow-elegant: 0 24px 70px -24px color-mix(in oklab, var(--ink) 32%, transparent);
-  --shadow-lift: 0 14px 34px -12px color-mix(in oklab, var(--primary) 40%, transparent);
+  --shadow-lift: 0 12px 28px -14px color-mix(in oklab, var(--ink) 45%, transparent);
 }
 
 .dark {
@@ -202,9 +202,9 @@
 
 @utility text-hero-accent {
   /* Solid brand red, slightly lifted for clean legibility on dark footage */
-  color: oklch(0.68 0.21 18);
+  color: oklch(0.6 0.203 25.5);
   background: none;
-  -webkit-text-fill-color: oklch(0.68 0.21 18);
+  -webkit-text-fill-color: oklch(0.6 0.203 25.5);
 }
 
 
