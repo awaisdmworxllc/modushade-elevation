@@ -38,9 +38,11 @@ function ProjectsPage() {
         {projects.length ? (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
-              <article
+              <Link
                 key={project.slug}
-                className="overflow-hidden rounded-2xl border border-border bg-card"
+                to="/projects/$slug"
+                params={{ slug: project.slug }}
+                className="group block overflow-hidden rounded-2xl border border-border bg-card transition hover:-translate-y-1 hover:shadow-elegant"
               >
                 {project.images[0] ? (
                   <img
@@ -50,7 +52,7 @@ function ProjectsPage() {
                     height={420}
                     loading="lazy"
                     decoding="async"
-                    className="h-48 w-full object-cover"
+                    className="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
                   />
                 ) : null}
                 <div className="p-6">
@@ -60,7 +62,7 @@ function ProjectsPage() {
                     {project.summary}
                   </p>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         ) : (
