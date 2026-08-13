@@ -132,6 +132,9 @@ function ServicePage() {
         </div>
       </Section>
 
+      {detail ? <DetailSections sections={detail.sections} /> : null}
+
+
       <Section tone="sand">
         <SectionHeading eyebrow="Related" title="Often specified alongside." />
         <div className="mt-8 flex flex-wrap gap-3">
