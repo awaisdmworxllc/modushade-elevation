@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ConsultationForm } from "@/components/site/ConsultationForm";
+import { DetailSections } from "@/components/site/DetailSections";
 import {
   BulletList,
   CtaSection,
@@ -9,6 +10,7 @@ import {
   SectionHeading,
 } from "@/components/site/ui";
 import { getService } from "@/data/services";
+import { getServiceDetail } from "@/data/details";
 import { coreLocations } from "@/data/locations";
 import { breadcrumbJsonLd, faqJsonLd, pageMeta, serviceJsonLd } from "@/lib/seo";
 
