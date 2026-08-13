@@ -4,20 +4,18 @@
  * there is a single place to update business information.
  */
 
-import heroVideoAsset from "@/assets/hero-window-treatments.mp4.asset.json";
-
 /**
  * HERO BACKGROUND VIDEO
  * ---------------------
- * A cinematic window-treatment clip served from the project CDN. To swap in your
- * own footage, replace the URL below with your hosted MP4 (and optionally add a
- * WebM version). Leave it as an empty string to fall back to the poster image.
+ * Served from /public so ANY host (Vercel, Netlify, Lovable) serves it as a
+ * plain static file with the correct video/mp4 MIME type. Do not move these
+ * back to a host-specific CDN pointer.
  */
-export const HERO_VIDEO_URL: string = heroVideoAsset.url;
+export const HERO_VIDEO_URL: string = "/video/hero-window-treatments.mp4";
 
+/** Optional secondary source (WebM/VP9) for browsers that prefer it. */
+export const HERO_VIDEO_URL_WEBM = "/video/hero-window-treatments.webm";
 
-/** Optional secondary source (e.g. a WebM version). Leave empty if unused. */
-export const HERO_VIDEO_URL_WEBM = "";
 
 /**
  * Poster / fallback image shown before the video plays, while it loads, on
