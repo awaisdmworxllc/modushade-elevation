@@ -4,16 +4,17 @@
  * there is a single place to update business information.
  */
 
-import heroVideoAsset from "@/assets/hero-motorized-shades.mp4.asset.json";
+import heroVideoAsset from "@/assets/hero-window-treatments.mp4.asset.json";
 
 /**
  * HERO BACKGROUND VIDEO
  * ---------------------
- * A cinematic motorized-shade clip served from the project CDN. To swap in your
+ * A cinematic window-treatment clip served from the project CDN. To swap in your
  * own footage, replace the URL below with your hosted MP4 (and optionally add a
  * WebM version). Leave it as an empty string to fall back to the poster image.
  */
 export const HERO_VIDEO_URL: string = heroVideoAsset.url;
+
 
 /** Optional secondary source (e.g. a WebM version). Leave empty if unused. */
 export const HERO_VIDEO_URL_WEBM = "";
