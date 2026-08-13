@@ -6,15 +6,14 @@ import {
 } from "@/data/site";
 
 /**
- * Full-bleed hero background: poster image first (fast LCP, no layout shift),
- * with the video fading in on top once it can actually play.
+ * Full-bleed hero background video with a poster image underneath.
  *
- * Performance rules:
- * - The <video> element is not mounted during SSR or first paint, so the poster
- *   image owns LCP and the video never competes for bandwidth with it.
- * - It mounts after the browser is idle (or ~1.2s later as a fallback).
- * - Skipped entirely for reduced-motion, save-data and 2G connections.
- * - Paused whenever the hero scrolls out of view.
+ * - The <video> is the primary background: it autoplays muted, loops and plays
+ *   inline on iOS. The poster image only shows until the first frame is ready
+ *   (or permanently if the browser cannot play the file / reduced-motion).
+ * - `ready` flips on loadeddata / playing / canplay so a browser that skips one
+ *   of those events still reveals the video.
+ * - Paused while the hero is scrolled out of view to save battery.
  */
 export function HeroVideo({
   posterUrl = HERO_POSTER_URL,
@@ -28,6 +27,8 @@ export function HeroVideo({
   const [ready, setReady] = useState(false);
   const [enabled, setEnabled] = useState(false);
 
+  // Mount the video after hydration (never during SSR) unless the visitor has
+  // asked for reduced motion or is on a data-saving / very slow connection.
   useEffect(() => {
     if (!HERO_VIDEO_URL) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -38,40 +39,43 @@ export function HeroVideo({
       connection?.saveData === true ||
       (connection?.effectiveType ? /(^|-)2g/.test(connection.effectiveType) : false);
     if (reduced || slow) return;
-
-    const idle = (
-      window as Window & { requestIdleCallback?: (cb: () => void) => number }
-    ).requestIdleCallback;
-    if (idle) {
-      const id = idle(() => setEnabled(true));
-      return () => {
-        (window as Window & { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback?.(id);
-      };
-    }
-    const timer = window.setTimeout(() => setEnabled(true), 1200);
-    return () => window.clearTimeout(timer);
+    setEnabled(true);
   }, []);
 
-  // Play only while the hero is on screen.
   useEffect(() => {
     if (!enabled) return;
     const wrap = wrapRef.current;
     const video = videoRef.current;
     if (!wrap || !video) return;
 
+    const tryPlay = () => {
+      const promise = video.play();
+      if (promise) void promise.catch(() => undefined);
+    };
+    tryPlay();
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry?.isIntersecting) {
-          void video.play().catch(() => setReady(false));
-        } else {
-          video.pause();
-        }
+        if (entry?.isIntersecting) tryPlay();
+        else video.pause();
       },
-      { threshold: 0.1 },
+      { threshold: 0.05 },
     );
     observer.observe(wrap);
-    return () => observer.disconnect();
+
+    // Some browsers block autoplay until the first user gesture.
+    const onGesture = () => tryPlay();
+    window.addEventListener("touchstart", onGesture, { once: true, passive: true });
+    window.addEventListener("pointerdown", onGesture, { once: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("touchstart", onGesture);
+      window.removeEventListener("pointerdown", onGesture);
+    };
   }, [enabled]);
+
+  const reveal = () => setReady(true);
 
   return (
     <div ref={wrapRef} className="absolute inset-0 overflow-hidden bg-ink">
@@ -84,13 +88,13 @@ export function HeroVideo({
         // eslint-disable-next-line react/no-unknown-property
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 h-full w-full animate-scale-in object-cover"
+        className="absolute inset-0 h-full w-full object-cover"
       />
 
       {enabled && HERO_VIDEO_URL ? (
         <video
           ref={videoRef}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1200ms] ${
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
             ready ? "opacity-100" : "opacity-0"
           }`}
           poster={posterUrl}
@@ -102,7 +106,10 @@ export function HeroVideo({
           disablePictureInPicture
           aria-hidden="true"
           tabIndex={-1}
-          onCanPlay={() => setReady(true)}
+          onLoadedData={reveal}
+          onCanPlay={reveal}
+          onPlaying={reveal}
+          onTimeUpdate={reveal}
         >
           {HERO_VIDEO_URL_WEBM ? (
             <source src={HERO_VIDEO_URL_WEBM} type="video/webm" />
