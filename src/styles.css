@@ -94,19 +94,20 @@
 
   --gradient-hero: linear-gradient(
     180deg,
-    color-mix(in oklab, var(--ink) 62%, transparent) 0%,
-    color-mix(in oklab, var(--ink) 38%, transparent) 42%,
-    color-mix(in oklab, var(--ink) 88%, transparent) 100%
+    oklch(0 0 0 / 0.55) 0%,
+    oklch(0 0 0 / 0.5) 50%,
+    oklch(0 0 0 / 0.72) 100%
   );
   --gradient-hero-side: linear-gradient(
-    100deg,
-    color-mix(in oklab, var(--ink) 72%, transparent) 0%,
-    color-mix(in oklab, var(--ink) 30%, transparent) 62%,
-    transparent 100%
+    90deg,
+    oklch(0 0 0 / 0.45) 0%,
+    oklch(0 0 0 / 0.12) 55%,
+    oklch(0 0 0 / 0) 100%
   );
+
   --gradient-ink: linear-gradient(160deg, var(--ink) 0%, var(--ink-soft) 100%);
   --shadow-elegant: 0 24px 70px -24px color-mix(in oklab, var(--ink) 32%, transparent);
-  --shadow-lift: 0 14px 34px -12px color-mix(in oklab, var(--primary) 40%, transparent);
+  --shadow-lift: 0 12px 28px -14px color-mix(in oklab, var(--ink) 45%, transparent);
 }
 
 .dark {
@@ -200,10 +201,12 @@
 }
 
 @utility text-hero-accent {
-  color: var(--primary);
+  /* Solid brand red, slightly lifted for clean legibility on dark footage */
+  color: oklch(0.6 0.203 25.5);
   background: none;
-  -webkit-text-fill-color: var(--primary);
+  -webkit-text-fill-color: oklch(0.6 0.203 25.5);
 }
+
 
 
 @utility bg-gradient-ink {
