@@ -115,6 +115,8 @@ export const locationDetails: LocationDetail[] = [
       { q: "Can you handle properties in two different counties for the same client?", a: "Yes, this comes up often — a primary home and an investment or family property in different towns. We coordinate scheduling so it's one project, not two." },
       { q: "Do product recommendations differ much by town?", a: "The underlying process doesn't change, but the right product often does — a high-rise condo and a Bergen County colonial rarely call for the same shade." },
       { q: "Is Passaic County definitely covered?", a: "We work in selected Passaic County towns. Give us the address and we'll confirm before scheduling." },
+      { q: "Do you charge travel fees for towns further out in Northern New Jersey?", a: "No. The consultation and measuring visit are free anywhere we serve, and travel is never added to your quote." },
+      { q: "Which Northern NJ towns get motorized shades most often?", a: "Newer construction in Bergen and Hudson with tall glass leads by a wide margin, but we motorize stairwell and high-transom windows in older towns just as often." },
     ],
     cta: {
       title: "One project, several towns — no problem",
@@ -282,6 +284,8 @@ export const locationDetails: LocationDetail[] = [
       { q: "Do Fort Lee high-rises usually need a certificate of insurance?", a: "Many do — let us know your building and we'll have the paperwork ready before your install date." },
       { q: "Can you match a solar shade to my river-view unit without blocking the view?", a: "Yes, that's the usual ask — a low-openness screen fabric cuts glare and heat while keeping the outlook clear." },
       { q: "How fast can you get back out if something needs adjusting after install?", a: "Being nearby in Cresskill, we can typically turn around a follow-up visit quickly." },
+      { q: "Do you install in Fort Lee's older garden apartments as well as the towers?", a: "Yes — the low-rise buildings along the Palisades are a regular part of our work, and mounting is usually simpler there." },
+      { q: "Can you coordinate an install around building move-in windows?", a: "Yes. Tell us the building's reserved elevator or move-in slot and we schedule the install inside it." },
     ],
     cta: {
       title: "Right down the road in Fort Lee",
@@ -333,6 +337,8 @@ export const locationDetails: LocationDetail[] = [
       { q: "We're mid-renovation — when should we call?", a: "As soon as walls are open, so we can plan hardwired motors or recessed pockets before drywall goes up." },
       { q: "Do you handle transom windows above the main sash?", a: "Yes, transoms are common in Englewood's older homes and we measure and treat them as their own opening." },
       { q: "My double-hung windows are tall and narrow — what usually suits them?", a: "Roman shades or full-length drapery generally suit the proportions better than a short, wide product." },
+      { q: "Do you work on Englewood's larger East Hill homes?", a: "Regularly — those projects are usually whole-house, and we plan them room by room over one or two visits." },
+      { q: "Can you match new treatments to existing woodwork stain?", a: "We can specify wood blinds and hardware finishes to sit alongside existing trim, and we bring physical samples so you can hold them against the wood." },
     ],
     cta: {
       title: "Character homes deserve a proper measure",
@@ -386,6 +392,8 @@ export const locationDetails: LocationDetail[] = [
       { q: "Does my building require a specific shade color or liner facing outward?", a: "Some Edgewater buildings do have exterior-appearance guidelines — we check this during the consultation so the order is right the first time." },
       { q: "Can one shade handle both sky glare and river reflection?", a: "Usually yes — a properly specified low-openness solar screen addresses both without needing a second layer." },
       { q: "Is motorization worth it for a townhome, or just the towers?", a: "It depends on the window — tall grouped townhome windows can benefit just as much as condo glass, especially if they're hard to reach." },
+      { q: "Do you install in Edgewater's waterfront high-rises with concierge access?", a: "Yes. We book access through the front desk in advance so the crew and materials arrive in one trip." },
+      { q: "Are floor-to-ceiling sliders a problem to cover?", a: "No — wide sliders are routine here. We usually run one wide shade or a matched pair so the panel stack stays clear of the door handle." },
     ],
     cta: {
       title: "Keep the water view, lose the glare",
@@ -440,6 +448,8 @@ export const locationDetails: LocationDetail[] = [
       { q: "Can you treat a bay window without ruining the shape?", a: "Yes — each pane is measured and treated as its own unit so the bay's angles still read clearly." },
       { q: "Should stained-glass transoms be covered?", a: "Usually not — we typically leave them as-is and treat only the operable window beneath." },
       { q: "Will cellular shades actually help with drafty original windows?", a: "They add a real insulating layer at the glass, though they won't replace the window itself if the sash has failed." },
+      { q: "Do you cover Montclair, Millburn and South Orange?", a: "Yes, these are among the Essex County towns we work in most often." },
+      { q: "Can you treat leaded or arched windows in older Essex County homes?", a: "Arched openings can be treated with a fabricated arch or an inside-mount shade below the curve; we confirm which is right once we see the opening." },
     ],
     cta: {
       title: "Period homes deserve period-appropriate treatments",
@@ -494,6 +504,8 @@ export const locationDetails: LocationDetail[] = [
       { q: "Will you drill into original brownstone trim?", a: "We avoid it wherever possible and plan brackets around existing mouldings; where drilling is unavoidable we discuss it with you first." },
       { q: "Can a shade cover just the bottom half of a tall parlor window for privacy?", a: "Yes — a top-down bottom-up cellular shade is a common solution for exactly that." },
       { q: "Do I need co-op board approval before you install?", a: "If your building requires it, let us know and we'll work around that approval process." },
+      { q: "Do you work in Brooklyn brownstones with no elevator?", a: "Yes. Walk-ups are normal for us here and we plan material handling for the stairs." },
+      { q: "Which Brooklyn neighborhoods do you cover?", a: "We work in selected Brooklyn neighborhoods — send us the address and we'll confirm before booking." },
     ],
     cta: {
       title: "Brownstone windows, treated with the right proportions",
@@ -543,6 +555,8 @@ export const locationDetails: LocationDetail[] = [
       { q: "Can you motorize a stairwell window that's two storeys up?", a: "Yes — this is one of the most common motorization requests we get in hillside Yonkers homes." },
       { q: "Do you serve Bronxville and Riverdale too?", a: "Selected areas of both — contact us with your address and we'll confirm coverage." },
       { q: "What helps most with glare reflecting off the Hudson in the afternoon?", a: "A solar screen or light filtering fabric usually handles it better than a heavier blackout treatment, since it cuts glare without losing the light entirely." },
+      { q: "Do you install in Yonkers co-ops and rental buildings?", a: "Yes, both. If your building requires a certificate of insurance we provide it before the install date." },
+      { q: "Are battery motors practical in an older Yonkers home with no new wiring?", a: "Yes — rechargeable battery motors are the usual answer where we can't run low-voltage cable without opening walls." },
     ],
     cta: {
       title: "From riverfront glare to unreachable stairwells",
