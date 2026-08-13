@@ -172,8 +172,12 @@ function ServicePage() {
         </div>
       </Section>
 
-      <FaqSection faqs={service.faqs} title={`${service.name}: your questions answered.`} />
-      <CtaSection />
+      <FaqSection faqs={faqs} title={`${service.name}: your questions answered.`} />
+      {detail?.cta ? (
+        <CtaSection title={detail.cta.title} body={detail.cta.body} />
+      ) : (
+        <CtaSection />
+      )}
     </>
   );
 }
