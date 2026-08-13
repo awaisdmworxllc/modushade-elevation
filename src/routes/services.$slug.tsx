@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ConsultationForm } from "@/components/site/ConsultationForm";
+import { VisualCta } from "@/components/site/VisualCta";
 import { DetailSections } from "@/components/site/DetailSections";
 import {
   BulletList,
@@ -89,12 +89,29 @@ function ServicePage() {
               </div>
             </div>
           </div>
-          <ConsultationForm
-            defaultService={service.name}
-            formName={`service_${service.slug}`}
+          <img
+            src={service.heroImage}
+            alt={service.heroAlt}
+            width={900}
+            height={1100}
+            loading="lazy"
+            decoding="async"
+            className="h-full min-h-[22rem] w-full rounded-3xl object-cover shadow-elegant"
           />
         </div>
       </Section>
+
+      <VisualCta
+        eyebrow={service.eyebrow}
+        title={`Considering ${service.name.toLowerCase()} for your home?`}
+        body={`Tell us which rooms you are working on and we will bring ${service.name.toLowerCase()} samples to your home, measure the openings and recommend the version that suits the light, privacy and budget you have in mind.`}
+        image={service.heroImage}
+        imageAlt={service.heroAlt}
+        imageSide="right"
+        ctaLabel="Get a Free Consultation"
+        secondary={{ label: "See all services", to: "/services" }}
+        trackingLocation={`service_${service.slug}_cta`}
+      />
 
       <Section tone="sand">
         <SectionHeading eyebrow="Options" title="Choose the version that fits the room." />
