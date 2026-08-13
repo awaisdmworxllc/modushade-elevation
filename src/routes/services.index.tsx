@@ -15,7 +15,7 @@ export const Route = createFileRoute("/services/")({
       description:
         "Motorized shades, roller, blackout, zebra, cellular and roman shades, custom blinds and made-to-measure drapery — measured and installed across Northern NJ and New York.",
       path: "/services",
-      image: "/images/custom-hero.jpg",
+      image: "/images/layered-coverings.jpg",
     }),
     scripts: [breadcrumbJsonLd(crumbs)],
   }),
@@ -29,7 +29,7 @@ function ServicesIndex() {
         eyebrow="Services"
         title="Made-to-measure window treatments, installed properly"
         lead="Each product below solves a different problem — light control, privacy, insulation, blackout or pure design. We help you match the right one to each room."
-        image="/images/custom-hero.jpg"
+        image="/images/layered-coverings.jpg"
         imageAlt="Custom shades and drapery layered across a bright living room window"
         breadcrumbs={crumbs}
       />

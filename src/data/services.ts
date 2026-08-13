@@ -50,7 +50,7 @@ export const services: Service[] = [
     seoDescription:
       "Custom motorized roller and blackout shades with remote, wall, app and smart-home control. Measured, installed and programmed across Bergen County, Northern NJ, Hudson County and Manhattan.",
     lead: "Premium motorized roller and blackout shades for large, high or hard-to-reach windows — measured, battery or hardwired, programmed and installed by ModuShade.",
-    heroImage: "/images/shades-hero.jpg",
+    heroImage: "/images/gen/motorized-shades-hero.jpg",
     heroAlt: "Motorized roller shades lowered across a wall of living room glass",
     intro: [
       "Motorization makes sense when a window is large, high, behind furniture, or simply used every single day. Instead of choosing a shade and then adding a motor, we specify the fabric, the motor and the control method together, so the finished system feels effortless rather than bolted on.",
@@ -498,7 +498,7 @@ export const services: Service[] = [
     seoDescription:
       "Custom roman shades in flat, relaxed and hobbled folds, lined or blackout. Made to measure and installed across Bergen County, Northern NJ, Hudson County and Manhattan.",
     lead: "The warmth and texture of drapery in the compact footprint of a shade — tailored, lined and made to your exact opening.",
-    heroImage: "/images/fabrics.jpg",
+    heroImage: "/images/gen/roman-shades-hero.jpg",
     heroAlt: "Fabric samples for custom roman shades",
     intro: [
       "Roman shades are where a window starts to feel designed rather than covered. Because the fabric stacks in folds, the treatment brings pattern, texture and softness into a room without the width that drapery panels need.",
@@ -553,7 +553,7 @@ export const services: Service[] = [
     seoDescription:
       "Custom sheer shades with soft adjustable vanes between sheer facings for diffused light and privacy. Installed across Bergen County, Northern NJ, Hudson County and Manhattan.",
     lead: "Soft horizontal vanes floating between two sheer facings — tilt them for view and daylight, close them for privacy.",
-    heroImage: "/images/layered-coverings.jpg",
+    heroImage: "/images/gen/sheer-shades-hero.jpg",
     heroAlt: "Sheer shades with soft fabric vanes filtering daylight",
     intro: [
       "Sheer shades combine the light control of a blind with the softness of a shade. The vanes tilt like slats, but they are fabric, so the light that reaches the room is diffused rather than striped.",
@@ -664,7 +664,7 @@ export const services: Service[] = [
     seoDescription:
       "Motorized curtain and drapery tracks with remote, app and smart-home control for wide spans and tall windows. Installed across Bergen County, Northern NJ, Hudson County and Manhattan.",
     lead: "Wide spans of drapery that open and close evenly at the touch of a button — without anyone walking the panels across by hand.",
-    heroImage: "/images/waterfront-highrise.jpg",
+    heroImage: "/images/gen/motorized-curtains-hero.jpg",
     heroAlt: "Floor-to-ceiling motorized curtains in a high-rise living room",
     intro: [
       "Motorized tracks make the most sense exactly where drapery is hardest to use: floor-to-ceiling glass, sliding doors, corner windows and rooms where the panels sit behind furniture. The motor keeps the leading edges aligned and the ripple even every single time.",
@@ -719,7 +719,7 @@ export const services: Service[] = [
     seoDescription:
       "Motorized exterior shades for patios, porches, terraces and pergolas — sun, glare and privacy control with remote and app operation. Serving Bergen County and Northern NJ.",
     lead: "Screen the sun before it reaches the glass, and turn a west-facing patio into usable space through the whole afternoon.",
-    heroImage: "/images/nj-home.jpg",
+    heroImage: "/images/gen/outdoor-motorized-shades-hero.jpg",
     heroAlt: "Home exterior with a covered patio suited to outdoor motorized shades",
     intro: [
       "Exterior shades work on a simple principle: it is far more effective to stop solar heat outside the window than to manage it inside. On patios, porches and pergolas they also cut wind-driven glare and give a screened, private outdoor room.",

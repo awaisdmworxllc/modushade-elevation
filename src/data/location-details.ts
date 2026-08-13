@@ -13,8 +13,6 @@ export const locationDetails: LocationDetail[] = [
           "Because we're based in Cresskill, a large share of our week is Bergen County appointments, and a pattern shows up quickly: homeowners either want one or two problem rooms solved (a great room that overheats, a bedroom that's too bright at 6am) or they're doing the whole house at once during a move-in.",
           "Both are easy to plan for on a single visit — we bring enough sample range to spec a full house the same afternoon if that's what's needed, or to solve one window properly without upselling the rest of the home.",
         ],
-        image: { src: "/images/nj-home.jpg", alt: "Suburban New Jersey home exterior with multiple window styles" },
-        imageSide: "right",
       },
       {
         id: "the-visit",
@@ -156,8 +154,6 @@ export const locationDetails: LocationDetail[] = [
           "Jersey City and Hoboken both have a steady supply of converted industrial buildings alongside brand-new towers. The older conversions often have exposed brick, large steel-frame windows and no drapery hardware anywhere — those get outside-mounted rollers or zebra shades that don't depend on drilling into masonry.",
           "The newer towers bring floor-to-ceiling glass and minimal frame to mount to at all, which is where slim cassette headrails and motorization earn their keep.",
         ],
-        image: { src: "/images/waterfront-highrise.jpg", alt: "Modern Hudson County waterfront tower with floor-to-ceiling windows" },
-        imageSide: "left",
       },
       {
         id: "who-we-serve",
@@ -211,8 +207,6 @@ export const locationDetails: LocationDetail[] = [
           "In most Manhattan apartments the building across the street is close enough that daytime privacy matters more than anything else, but nobody wants to sit in the dark all day. Zebra shades and light filtering fabrics answer that directly — sheer enough to hold onto daylight, opaque enough to break up sightlines.",
           "Bedrooms flip the priority at night: a blackout layer, often paired with side channels, deals with hallway light, street light and early sunrise through thin curtain-wall glass.",
         ],
-        image: { src: "/images/privacy-window.jpg", alt: "Zebra shade providing daytime privacy in a Manhattan apartment window" },
-        imageSide: "right",
       },
       {
         id: "process",
@@ -265,8 +259,6 @@ export const locationDetails: LocationDetail[] = [
         body: [
           "Fort Lee sits just down the road from us, which is useful in ways that don't show up on a spec sheet: a re-measure doesn't need to wait weeks, and if a motor limit needs adjusting after install, we can usually get back out quickly.",
         ],
-        image: { src: "/images/consultation.jpg", alt: "In-home consultation with fabric samples for a Fort Lee window project" },
-        imageSide: "left",
       },
       {
         id: "checklist",
@@ -323,8 +315,6 @@ export const locationDetails: LocationDetail[] = [
         body: [
           "Englewood's residential streets carry more ambient light at night than homeowners tend to assume — streetlights, neighboring porch lights, and cars turning at a nearby corner. A properly mounted blackout shade, sized generously with side channels or a deep outside mount, solves this in a way an off-the-shelf shade usually can't.",
         ],
-        image: { src: "/images/colonial-interior.jpg", alt: "Bedroom with tall double-hung window in an older Englewood home" },
-        imageSide: "right",
       },
       {
         id: "coverage",
@@ -384,8 +374,6 @@ export const locationDetails: LocationDetail[] = [
         body: [
           "Several Edgewater buildings have exterior-appearance guidelines that affect what can be visible from outside — typically requiring a neutral backing or liner on street- and river-facing shades. We check this during the consultation so nothing needs to be reordered later.",
         ],
-        image: { src: "/images/waterfront-highrise.jpg", alt: "Edgewater riverfront residential building facade" },
-        imageSide: "left",
       },
     ],
     extraFaqs: [
@@ -422,8 +410,6 @@ export const locationDetails: LocationDetail[] = [
         body: [
           "A Victorian parlor or Tudor dining room reads differently with a crisp, modern roller shade than it does with a roman shade or drapery in a fabric that respects the room's proportions and trim. We bring physical samples so you can see how a fabric behaves against your actual moulding and light, not a photo.",
         ],
-        image: { src: "/images/victorian-home.jpg", alt: "Victorian home living room with period trim and tall windows" },
-        imageSide: "right",
       },
       {
         id: "insulation",
@@ -487,8 +473,6 @@ export const locationDetails: LocationDetail[] = [
         body: [
           "Brownstone parlor floors are often just a few steps above street level, so daytime privacy comes up in nearly every consultation. Light filtering or zebra shades keep the room bright while breaking up the sightline from the sidewalk; a top-down bottom-up cellular shade is another common answer, since it can cover just the lower half of a tall window.",
         ],
-        image: { src: "/images/brownstone.jpg", alt: "Brooklyn brownstone parlor window at street level" },
-        imageSide: "left",
       },
       {
         id: "new-build",
@@ -532,8 +516,6 @@ export const locationDetails: LocationDetail[] = [
         body: [
           "Hillside houses built into a slope often have a stairwell window two flights up or a gable window at the peak of a vaulted ceiling — openings that were never meant to be operated by hand. These are some of the clearest, least debatable cases for motorization we come across anywhere: a remote or app control instead of a window nobody has touched in years.",
         ],
-        image: { src: "/images/hillside-homes.jpg", alt: "Hillside home in Yonkers with a tall stairwell window" },
-        imageSide: "right",
       },
       {
         id: "housing-mix",

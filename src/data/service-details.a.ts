@@ -15,8 +15,6 @@ export const serviceDetailsA: ServiceDetail[] = [
           "We size the motor to the weight and width of the shade so it starts, stops and stalls at exactly the same point every time. Oversized or undersized motors are the usual cause of shades that whine, drift out of level, or stop early.",
           "Upper and lower limits are set on site once the shade is hung, so it never runs into the headrail or leaves a gap at the sill.",
         ],
-        image: { src: "/images/custom-hero.jpg", alt: "Motor and control tube fitted inside a rolled shade headrail" },
-        imageSide: "right",
         tone: "paper",
       },
       {
@@ -66,8 +64,6 @@ export const serviceDetailsA: ServiceDetail[] = [
           "A wall control works like a light switch for a bedroom or hallway, and is the option most households actually use day to day.",
           "App control and smart-home integration are available on compatible hardware; we confirm what a specific motor supports before you order, rather than assuming every system talks to every hub.",
         ],
-        image: { src: "/images/nj-home.jpg", alt: "Wall-mounted shade control beside a bedroom doorway" },
-        imageSide: "left",
         tone: "sand",
       },
     ],
@@ -283,8 +279,6 @@ export const serviceDetailsA: ServiceDetail[] = [
           "Light filtering shades are built for daytime comfort, not night-time privacy. Once interior lights are on, a silhouette can still be visible from outside.",
           "Where evening privacy matters as much as daytime brightness, we usually recommend pairing the shade with drapery, or reviewing a room-darkening fabric for that specific window.",
         ],
-        image: { src: "/images/light-filtering.jpg", alt: "Softly diffused daylight through a light filtering shade" },
-        imageSide: "right",
         tone: "sand",
       },
       {
@@ -346,8 +340,6 @@ export const serviceDetailsA: ServiceDetail[] = [
           "Zebra shades are especially common in apartments and condos, where a window has to manage a genuinely good daytime view alongside a neighbour's window a short distance away in the evening.",
           "A single shade handling both jobs also keeps the window treatment simpler than layering a sheer and a solid shade separately.",
         ],
-        image: { src: "/images/nyc-apartment.jpg", alt: "Zebra shade with adjustable bands in a high-rise apartment window" },
-        imageSide: "left",
         tone: "ink",
       },
       {
@@ -434,8 +426,6 @@ export const serviceDetailsA: ServiceDetail[] = [
           "Top-down bottom-up operation lets the shade be lowered from the top of the window as well as raised from the bottom, so a street-facing bedroom can let daylight in above head height while the lower half stays private.",
           "It's a small mechanical difference that solves a very common complaint about ground-floor and low-rise windows.",
         ],
-        image: { src: "/images/privacy.jpg", alt: "Cellular shade lowered from the top of a window for privacy" },
-        imageSide: "right",
         tone: "sand",
       },
       {
