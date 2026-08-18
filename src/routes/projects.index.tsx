@@ -17,7 +17,10 @@ export const Route = createFileRoute("/projects/")({
         "Real ModuShade installations across Bergen County, Northern NJ, Hudson County and New York — motorized shades, blinds and custom drapery.",
       path: "/projects",
       image: "/images/installation.jpg",
+      // Hidden from search until real project pages are published.
+      noindex: true,
     }),
+
     scripts: [breadcrumbJsonLd(crumbs)],
   }),
   component: ProjectsPage,
