@@ -66,10 +66,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
-              <Link to="/projects" className="hover:text-primary">
-                Projects
+              <Link to="/services/motorized-shades" className="hover:text-primary">
+                Motorized Shades
               </Link>
             </li>
+
             <li>
               <Link to="/faq" className="hover:text-primary">
                 FAQ
