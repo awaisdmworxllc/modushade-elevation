@@ -327,9 +327,10 @@ export function CtaSection({
           <SectionHeading eyebrow={eyebrow} title={title} body={body} onDark />
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <PrimaryButton to="/contact">Get a Free Consultation</PrimaryButton>
-            <GhostButton to="/projects" onDark>
-              See our work
+            <GhostButton to="/services" onDark>
+              Browse services
             </GhostButton>
+
           </div>
         </div>
         <div className="rounded-2xl border border-ink-foreground/15 p-7">
