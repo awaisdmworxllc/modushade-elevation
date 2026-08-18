@@ -268,9 +268,7 @@ export function SiteHeader() {
               </div>
             </details>
 
-            <MobileLink to="/projects" onDone={() => setOpen(false)}>
-              Projects
-            </MobileLink>
+
 
             <details className="border-b border-border">
               <summary className="flex cursor-pointer items-center justify-between py-4 text-base font-bold">
