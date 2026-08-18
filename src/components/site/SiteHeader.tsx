@@ -136,7 +136,7 @@ export function SiteHeader() {
             </div>
 
             <NavLink to="/services/motorized-shades">Motorized</NavLink>
-            <NavLink to="/projects">Projects</NavLink>
+
 
             <div className="group relative">
               <Link
