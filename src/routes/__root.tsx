@@ -14,7 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { site } from "@/data/site";
-import { captureLeadSource } from "@/lib/analytics";
+import { captureLeadSource, GTM_ID } from "@/lib/analytics";
 import { reviews } from "@/data/reviews";
 
 function NotFoundComponent() {
