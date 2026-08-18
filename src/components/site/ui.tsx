@@ -313,8 +313,9 @@ export function BulletList({ items }: { items: string[] }) {
 
 export function CtaSection({
   title = "Ready to love every window?",
-  body = "Tell us about your rooms and what you would like to achieve. We bring samples, measure properly and give you a straight answer.",
-  eyebrow = "Free in-home consultation",
+  body = "Tell us about your rooms and what you would like to achieve. We bring samples, measure properly, give you a straight answer — and installation is free, handled by our own team.",
+  eyebrow = "Free in-home consultation · Free professional installation",
+
 }: {
   title?: string;
   body?: string;
@@ -327,9 +328,10 @@ export function CtaSection({
           <SectionHeading eyebrow={eyebrow} title={title} body={body} onDark />
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <PrimaryButton to="/contact">Get a Free Consultation</PrimaryButton>
-            <GhostButton to="/projects" onDark>
-              See our work
+            <GhostButton to="/services" onDark>
+              Browse services
             </GhostButton>
+
           </div>
         </div>
         <div className="rounded-2xl border border-ink-foreground/15 p-7">

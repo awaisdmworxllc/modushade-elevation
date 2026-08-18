@@ -23,8 +23,10 @@ Service areas (10):
 `/manhattan-ny`, `/fort-lee-nj`, `/englewood-nj`, `/edgewater-nj`,
 `/essex-county-nj`, `/brooklyn-ny`, `/yonkers-ny`
 
-Projects: `/projects/<slug>` — one page per project, added automatically to the
-sitemap as projects are published. **ACTION: content needed (section 6).**
+Projects: **temporarily hidden** at your request — removed from the header,
+footer and sitemap, and set to `noindex` until you send real installation
+photos. The `/projects/<slug>` architecture stays in place, so publishing the
+first projects restores the links and sitemap entries automatically.
 
 Sitemap is generated server-side, so new services / areas / projects appear
 without manual editing. `robots.txt` allows all crawlers and points to
@@ -157,14 +159,21 @@ project, one outdoor/patio project.
 
 ---
 
-## 7. Reviews
+## 7. Reviews — live Google rating (decided: live)
 
-Genuine Google review quotes are displayed and included in schema. The star
-rating + review count block is built but intentionally switched off, because a
-hard-coded count goes stale. Two accurate options:
-- **A (recommended):** pull rating and count live from the Google Business
-  Profile / Places API, cached for a few hours, so the number is always current.
-- **B:** leave quotes only, no numeric rating.
+Decision: rating, review count and review text come live from the Google
+Business Profile, never hard-coded. Implementation plan:
+- Resolve the profile from your share link and store its Google **Place ID**.
+- A server function calls the Google Places Place Details endpoint
+  (`rating`, `userRatingCount`, `reviews`) and caches the response for a few
+  hours, so the site always shows the current number.
+- The rating block and review cards then render live data, with a link to the
+  full profile.
+
+**ACTION:** this needs a Google Maps Platform API key (Places API enabled,
+billing on the Google Cloud project, key restricted to server use). Send the
+key and it will be wired up. Until then the site shows genuine review quotes
+with no numeric rating.
 
 ---
 
@@ -175,8 +184,10 @@ Events already firing on every relevant CTA: `phone_click`, `whatsapp_click`,
 with lead source (UTM, `gclid`, referrer channel, landing page), stored per
 session so the original source survives internal navigation.
 
-**ACTION:** send either a GTM container ID or a GA4 measurement ID (one, not
-both, to avoid double counting) and it goes live immediately. Then:
+GTM is now wired into the site: the container snippet loads as soon as the
+`VITE_GTM_ID` value is set, and nothing third-party loads before that.
+
+**ACTION:** send your GTM container ID (`GTM-XXXXXXX`). Then:
 - GA4: mark `generate_lead`, `phone_click`, `whatsapp_click` as key events.
 - Search Console: verify `modu-shade.com` after the domain move and submit
   `/sitemap.xml`.
@@ -242,13 +253,12 @@ move — field data only exists once the real domain serves traffic.
 
 ---
 
-## 12. Free Professional Installation — wording to confirm
+## 12. Free Professional Installation — confirmed wording (live)
 
-Proposed short form: **"Free professional installation."**
-Longer form for value sections: **"Free professional installation on every
-order — measured, installed and adjusted by our own team."**
+Confirmed: **"Free professional installation — measured, installed and adjusted
+by our own team."** Stored once in `src/data/site.ts` so it reads identically
+everywhere.
 
-Planned placement (not repeated everywhere): homepage value block, services
-overview, motorized-shades page, contact page and the pre-CTA block on service
-pages. Confirm the wording and any conditions (minimum order, service area
-limits) and it will be applied.
+In place now: homepage value bar and the CTA block that appears on service,
+location and content pages ("Free in-home consultation · Free professional
+installation"). Deliberately not repeated in every section.
