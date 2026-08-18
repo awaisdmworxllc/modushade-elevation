@@ -54,6 +54,15 @@ export const site = {
   ],
 } as const;
 
+/**
+ * Free installation offer — confirmed wording. Use these constants everywhere
+ * so the promise reads identically across the site.
+ */
+export const installationOffer = {
+  short: "Free professional installation",
+  full: "Free professional installation — measured, installed and adjusted by our own team",
+} as const;
+
 export const trustPoints = [
   {
     title: "Honest recommendations",
@@ -64,14 +73,15 @@ export const trustPoints = [
     body: "See fabrics, opacities and colors in your own light before you decide.",
   },
   {
-    title: "Measured & installed",
-    body: "One team from the first consultation through to the final adjustment.",
+    title: installationOffer.short,
+    body: "Measured, installed and adjusted by our own team — one team from the first consultation to the final adjustment.",
   },
   {
     title: "Clean, finished work",
     body: "Installed, programmed, tested and the space left spotless.",
   },
 ] as const;
+
 
 export const processSteps = [
   {
