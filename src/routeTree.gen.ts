@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CustomWindowTreatmentsRouteImport } from './routes/custom-window-treatments'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -42,6 +43,11 @@ const AboutRoute = AboutRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomWindowTreatmentsRoute = CustomWindowTreatmentsRouteImport.update({
+  id: '/custom-window-treatments',
+  path: '/custom-window-treatments',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -100,6 +106,7 @@ export interface FileRoutesByFullPath {
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/custom-window-treatments': typeof CustomWindowTreatmentsRoute
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -116,6 +123,7 @@ export interface FileRoutesByTo {
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/custom-window-treatments': typeof CustomWindowTreatmentsRoute
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -133,6 +141,7 @@ export interface FileRoutesById {
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/custom-window-treatments': typeof CustomWindowTreatmentsRoute
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -151,6 +160,7 @@ export interface FileRouteTypes {
     | '/$'
     | '/about'
     | '/contact'
+    | '/custom-window-treatments'
     | '/faq'
     | '/privacy-policy'
     | '/sitemap.xml'
@@ -167,6 +177,7 @@ export interface FileRouteTypes {
     | '/$'
     | '/about'
     | '/contact'
+    | '/custom-window-treatments'
     | '/faq'
     | '/privacy-policy'
     | '/sitemap.xml'
@@ -183,6 +194,7 @@ export interface FileRouteTypes {
     | '/$'
     | '/about'
     | '/contact'
+    | '/custom-window-treatments'
     | '/faq'
     | '/privacy-policy'
     | '/sitemap.xml'
@@ -200,6 +212,7 @@ export interface RootRouteChildren {
   SplatRoute: typeof SplatRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  CustomWindowTreatmentsRoute: typeof CustomWindowTreatmentsRoute
   FaqRoute: typeof FaqRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -240,6 +253,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/custom-window-treatments': {
+      id: '/custom-window-treatments'
+      path: '/custom-window-treatments'
+      fullPath: '/custom-window-treatments'
+      preLoaderRoute: typeof CustomWindowTreatmentsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -320,6 +340,7 @@ const rootRouteChildren: RootRouteChildren = {
   SplatRoute: SplatRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  CustomWindowTreatmentsRoute: CustomWindowTreatmentsRoute,
   FaqRoute: FaqRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
