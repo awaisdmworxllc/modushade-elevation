@@ -2,9 +2,19 @@ import { site } from "@/data/site";
 
 type MetaEntry = Record<string, string>;
 
+/** Production origin, no trailing slash. Canonicals are always absolute so
+ * preview/Vercel hosts never get indexed as the canonical version. */
+const ORIGIN = site.domain.replace(/\/$/, "");
+
+/** Absolute production URL for a site-relative path (no trailing slash). */
+export function absoluteUrl(path: string) {
+  const clean = path === "/" ? "" : path.replace(/\/$/, "");
+  return `${ORIGIN}${clean}` || `${ORIGIN}/`;
+}
+
 /**
  * Build a consistent, unique head() payload for a page.
- * Canonical + og:url are relative so they stay correct on any host.
+ * Canonical + og:url use the production domain (https://modu-shade.com).
  */
 export function pageMeta({
   title,
