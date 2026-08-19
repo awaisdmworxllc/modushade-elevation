@@ -183,6 +183,7 @@ export function PageHero({
         width={1600}
         height={900}
         loading="eager"
+        fetchPriority="high"
         decoding="async"
         className="absolute inset-0 h-full w-full object-cover opacity-70"
       />
