@@ -15,6 +15,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CustomWindowTreatmentsRouteImport } from './routes/custom-window-treatments'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as MotorizedShadesRouteImport } from './routes/motorized-shades'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
@@ -53,6 +54,11 @@ const CustomWindowTreatmentsRoute = CustomWindowTreatmentsRouteImport.update({
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MotorizedShadesRoute = MotorizedShadesRouteImport.update({
+  id: '/motorized-shades',
+  path: '/motorized-shades',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
@@ -108,6 +114,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/custom-window-treatments': typeof CustomWindowTreatmentsRoute
   '/faq': typeof FaqRoute
+  '/motorized-shades': typeof MotorizedShadesRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
@@ -125,6 +132,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/custom-window-treatments': typeof CustomWindowTreatmentsRoute
   '/faq': typeof FaqRoute
+  '/motorized-shades': typeof MotorizedShadesRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
@@ -143,6 +151,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/custom-window-treatments': typeof CustomWindowTreatmentsRoute
   '/faq': typeof FaqRoute
+  '/motorized-shades': typeof MotorizedShadesRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
@@ -162,6 +171,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/custom-window-treatments'
     | '/faq'
+    | '/motorized-shades'
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms'
@@ -179,6 +189,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/custom-window-treatments'
     | '/faq'
+    | '/motorized-shades'
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms'
@@ -196,6 +207,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/custom-window-treatments'
     | '/faq'
+    | '/motorized-shades'
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms'
@@ -214,6 +226,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CustomWindowTreatmentsRoute: typeof CustomWindowTreatmentsRoute
   FaqRoute: typeof FaqRoute
+  MotorizedShadesRoute: typeof MotorizedShadesRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
@@ -267,6 +280,13 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/motorized-shades': {
+      id: '/motorized-shades'
+      path: '/motorized-shades'
+      fullPath: '/motorized-shades'
+      preLoaderRoute: typeof MotorizedShadesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy-policy': {
@@ -342,6 +362,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CustomWindowTreatmentsRoute: CustomWindowTreatmentsRoute,
   FaqRoute: FaqRoute,
+  MotorizedShadesRoute: MotorizedShadesRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
