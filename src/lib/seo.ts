@@ -38,7 +38,7 @@ export function pageMeta({
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:type", content: type },
-    { property: "og:url", content: path },
+    { property: "og:url", content: absoluteUrl(path) },
     { property: "og:site_name", content: site.name },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
