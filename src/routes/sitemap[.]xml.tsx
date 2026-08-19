@@ -8,7 +8,7 @@ const staticPaths: { path: string; priority: string; changefreq: string }[] = [
   { path: "/", priority: "1.0", changefreq: "weekly" },
   { path: "/services", priority: "0.9", changefreq: "monthly" },
   { path: "/service-areas", priority: "0.8", changefreq: "monthly" },
-  // /projects stays out of the sitemap until real project pages are published.
+  { path: "/projects", priority: "0.7", changefreq: "monthly" },
   { path: "/about", priority: "0.6", changefreq: "yearly" },
   { path: "/faq", priority: "0.6", changefreq: "yearly" },
   { path: "/contact", priority: "0.8", changefreq: "yearly" },
