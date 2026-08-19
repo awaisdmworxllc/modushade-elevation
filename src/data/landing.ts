@@ -53,6 +53,27 @@ export type LandingConfig = {
   formImage: LandingImage;
   interestOptions: string[];
   faqs: { q: string; a: string }[];
+  /** Seasonal promotion shown in the hero and once again above the form. */
+  promo: LandingPromo;
+};
+
+/**
+ * Seasonal promotion. Copy is deliberately "up to 25% on select …" — no
+ * invented end dates, coupon codes, minimums or countdowns.
+ */
+export type LandingPromo = {
+  /** Pill text, e.g. "SUMMER PROMOTION • SAVE UP TO 25%". */
+  badge: string;
+  /** Short headline for the promo highlight, e.g. "Save Up to 25%". */
+  highlight: string;
+  /** Supporting offer sentence, page specific. */
+  support: string;
+  /** Primary promo CTA label. */
+  cta: string;
+  /** Reinforcement strip above the consultation form. */
+  stripTitle: string;
+  /** Form heading used when arriving via the promo. */
+  formTitle: string;
 };
 
 const work = (file: string, alt: string): LandingImage => ({
