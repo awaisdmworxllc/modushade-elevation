@@ -22,9 +22,10 @@ export type GalleryCategory =
  *  - "service": feature or closing-CTA image on a service page (see imagery.ts)
  *  - "area": feature image on a service-area page (see imagery.ts)
  *  - "about": About page hero
+ *  - "hero": page hero image (not repeated in any grid)
  *  - "gallery": the /projects portfolio grid (and the teaser strips that link to it)
  */
-export type GalleryUse = "service" | "area" | "about" | "gallery";
+export type GalleryUse = "service" | "area" | "about" | "hero" | "gallery";
 
 export type GalleryPhoto = {
   /** Base filename in /images/work (without extension) */
@@ -244,7 +245,7 @@ export const galleryPhotos: GalleryPhoto[] = [
   },
   {
     file: "installers-arched-window",
-    use: "gallery",
+    use: "hero",
     alt: "Two ModuShade installers on ladders fitting shades at a tall arched window",
     caption: "Tall arched opening handled from ladders by our own installers.",
     category: "Measuring & installation",
