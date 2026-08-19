@@ -113,6 +113,27 @@ const localBusinessJsonLd = {
   })),
 };
 
+const webSiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${site.domain}/#website`,
+  url: site.domain,
+  name: site.name,
+  description: site.tagline,
+  inLanguage: "en-US",
+  publisher: { "@id": `${site.domain}/#business` },
+};
+
+/**
+ * GOOGLE SEARCH CONSOLE VERIFICATION
+ * ----------------------------------
+ * Prefer DNS or the Google Analytics / Tag Manager verification method (GTM is
+ * already installed). If you need the HTML-tag method instead, paste the token
+ * Search Console gives you below and add it to the meta array:
+ *   { name: "google-site-verification", content: "PASTE_TOKEN_HERE" }
+ * Never invent a token — it must come from your Search Console property.
+ */
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
@@ -143,6 +164,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(localBusinessJsonLd) },
+      { type: "application/ld+json", children: JSON.stringify(webSiteJsonLd) },
       // Google Tag Manager — loads only once VITE_GTM_ID is set, so Core Web
       // Vitals stay untouched until the container ID is added.
       ...(GTM_ID

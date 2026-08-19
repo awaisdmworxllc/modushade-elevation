@@ -48,7 +48,7 @@ export const services: Service[] = [
     h1: "Motorized shades, quietly done right",
     seoTitle: "Motorized Shades in Bergen County & Northern NJ | ModuShade",
     seoDescription:
-      "Custom motorized roller and blackout shades with remote, wall, app and smart-home control. Measured, installed and programmed across Bergen County, Northern NJ, Hudson County and Manhattan.",
+      "Custom motorized shades with remote, wall, app and smart-home control — measured, installed and programmed across Bergen County, Northern NJ and Manhattan.",
     lead: "Premium motorized roller and blackout shades for large, high or hard-to-reach windows — measured, battery or hardwired, programmed and installed by ModuShade.",
     heroImage: "/images/gen/motorized-shades-hero.jpg",
     heroAlt: "Motorized roller shades lowered across a wall of living room glass",
@@ -771,7 +771,7 @@ export const services: Service[] = [
     h1: "Custom blinds in wood, faux wood and vertical",
     seoTitle: "Custom Blinds — Wood, Faux Wood & Vertical | ModuShade NJ & NYC",
     seoDescription:
-      "Custom wood, faux wood and vertical blinds sized to your openings, with tilt control for exact light and privacy. Installed across Bergen County, Northern NJ, Hudson County and Manhattan.",
+      "Custom wood, faux wood and vertical blinds sized to your openings for exact light and privacy. Installed across Bergen County, Northern NJ and Manhattan.",
     lead: "Slatted treatments you can tilt through the day — warm real wood, moisture-resistant faux wood, or verticals for wide sliding doors.",
     heroImage: "/images/custom-blinds.jpg",
     heroAlt: "Custom wood blinds tilted open in a bright room",

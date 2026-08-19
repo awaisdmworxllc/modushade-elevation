@@ -2,9 +2,19 @@ import { site } from "@/data/site";
 
 type MetaEntry = Record<string, string>;
 
+/** Production origin, no trailing slash. Canonicals are always absolute so
+ * preview/Vercel hosts never get indexed as the canonical version. */
+const ORIGIN = site.domain.replace(/\/$/, "");
+
+/** Absolute production URL for a site-relative path (root keeps its slash). */
+export function absoluteUrl(path: string) {
+  if (path === "/" || path === "") return `${ORIGIN}/`;
+  return `${ORIGIN}${path.replace(/\/$/, "")}`;
+}
+
 /**
  * Build a consistent, unique head() payload for a page.
- * Canonical + og:url are relative so they stay correct on any host.
+ * Canonical + og:url use the production domain (https://modu-shade.com).
  */
 export function pageMeta({
   title,
@@ -28,7 +38,7 @@ export function pageMeta({
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:type", content: type },
-    { property: "og:url", content: path },
+    { property: "og:url", content: absoluteUrl(path) },
     { property: "og:site_name", content: site.name },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
@@ -39,7 +49,7 @@ export function pageMeta({
     meta.push({ property: "og:image", content: absolute });
     meta.push({ name: "twitter:image", content: absolute });
   }
-  return { meta, links: [{ rel: "canonical", href: path }] };
+  return { meta, links: [{ rel: "canonical", href: absoluteUrl(path) }] };
 }
 
 export function breadcrumbJsonLd(items: { name: string; path: string }[]) {

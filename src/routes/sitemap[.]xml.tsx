@@ -21,7 +21,7 @@ export const Route = createFileRoute("/sitemap.xml")({
     handlers: {
       GET: () => {
         const base = site.domain.replace(/\/$/, "");
-        const today = new Date().toISOString().slice(0, 10);
+
 
         const urls = [
           ...staticPaths,
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/sitemap.xml")({
 ${urls
   .map(
     (u) =>
-      `  <url>\n    <loc>${base}${u.path}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${u.changefreq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`,
+      `  <url>\n    <loc>${base}${u.path}</loc>\n    <changefreq>${u.changefreq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`,
   )
   .join("\n")}
 </urlset>
