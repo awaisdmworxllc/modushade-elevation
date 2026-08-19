@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CtaSection, PageHero, Section, SectionHeading } from "@/components/site/ui";
 import { WorkGallery } from "@/components/site/WorkGallery";
-import { galleryCategories, galleryPhotos } from "@/data/gallery";
+import { galleryCategories, portfolioPhotos } from "@/data/gallery";
 import { services } from "@/data/services";
 import { breadcrumbJsonLd, pageMeta } from "@/lib/seo";
 
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/projects/")({
       description:
         "Photographs of real ModuShade installations — motorized and roller shades, zebra shades, sheer shades, drapery and commercial fit-outs across Northern NJ and New York.",
       path: "/projects",
-      image: "/images/work/zebra-shades-vaulted-bedroom.jpg",
+      image: "/images/work/installers-arched-window.jpg",
     }),
     scripts: [breadcrumbJsonLd(crumbs)],
   }),
@@ -38,12 +38,12 @@ function ProjectsPage() {
 
       <Section>
         <SectionHeading
-          eyebrow={`${galleryPhotos.length} photographs`}
+          eyebrow={`${portfolioPhotos.length} photographs`}
           title="Recent installations."
           body="Bedrooms, kitchens, bay windows, vaulted ceilings, offices and storefronts — including the awkward openings that make the difference between a shade that fits and one that nearly fits."
         />
         <div className="mt-10">
-          <WorkGallery photos={galleryPhotos} />
+          <WorkGallery photos={portfolioPhotos} />
         </div>
       </Section>
 

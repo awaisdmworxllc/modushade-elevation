@@ -23,28 +23,28 @@ export const serviceImagery: Record<string, PageImagery> = {
   },
   "roller-shades": {
     feature: {
-      src: "/images/gen/roller-shades-feature.jpg",
-      alt: "Crisp white roller shade half lowered above a dining table in a bright minimalist room",
+      src: "/images/work/roller-shades-guest-bedroom.jpg",
+      alt: "Roller shades installed by ModuShade across two bedroom windows with matching cassettes and aligned hems",
     },
     cta: {
-      src: "/images/gen/roller-shades-cta.jpg",
-      alt: "Roller shades set at matching heights across a wide sliding glass door",
+      src: "/images/work/roller-shade-sliding-window.jpg",
+      alt: "One wide roller shade covering a living room sliding window in a completed ModuShade installation",
     },
   },
   "blackout-shades": {
     feature: {
-      src: "/images/gen/blackout-shades-feature.jpg",
-      alt: "Bedroom darkened in daytime by blackout shades with only a thin rim of light at the edges",
+      src: "/images/work/roller-shade-kids-room-lowered.jpg",
+      alt: "Blackout roller shade fully lowered over a child's bedroom window in a ModuShade installation",
     },
     cta: {
-      src: "/images/gen/blackout-shades-cta.jpg",
-      alt: "Nursery with a blackout shade lowered for daytime naps",
+      src: "/images/work/roller-shade-kids-room-raised.jpg",
+      alt: "The same child's bedroom window with the blackout roller shade raised into its cassette",
     },
   },
   "light-filtering-shades": {
     feature: {
-      src: "/images/gen/light-filtering-shades-feature.jpg",
-      alt: "Sunlight diffused softly through light filtering shades in a home office",
+      src: "/images/work/roller-shade-bedroom-office.jpg",
+      alt: "Light filtering roller shade half raised above a desk in a bedroom used as a home office",
     },
     cta: {
       src: "/images/gen/light-filtering-shades-cta.jpg",
@@ -53,8 +53,8 @@ export const serviceImagery: Record<string, PageImagery> = {
   },
   "zebra-shades": {
     feature: {
-      src: "/images/gen/zebra-shades-feature.jpg",
-      alt: "Close view of zebra shade bands alternating sheer and solid across an apartment window",
+      src: "/images/work/zebra-shade-wide-window.jpg",
+      alt: "ModuShade zebra shade lowered across a wide bedroom window, sheer and solid bands aligned",
     },
     cta: {
       src: "/images/gen/zebra-shades-cta.jpg",
@@ -83,8 +83,8 @@ export const serviceImagery: Record<string, PageImagery> = {
   },
   "sheer-shades": {
     feature: {
-      src: "/images/gen/sheer-shades-feature.jpg",
-      alt: "Sheer shade with soft fabric vanes glowing against daylight in a neutral sitting room",
+      src: "/images/work/sheer-shades-bay-window.jpg",
+      alt: "Sheer shades fitted as three panels across the bay window of an apartment living room",
     },
     cta: {
       src: "/images/gen/sheer-shades-cta.jpg",
@@ -93,8 +93,8 @@ export const serviceImagery: Record<string, PageImagery> = {
   },
   "custom-drapery": {
     feature: {
-      src: "/images/gen/custom-drapery-feature.jpg",
-      alt: "Floor-length pinch-pleat drapery panels framing a tall window in a formal living room",
+      src: "/images/work/sheer-drapery-bedroom.jpg",
+      alt: "Floor-length sheer drapery panels hung high and wide across a bedroom window",
     },
     cta: {
       src: "/images/gen/custom-drapery-cta.jpg",
@@ -127,8 +127,8 @@ export const serviceImagery: Record<string, PageImagery> = {
       alt: "Custom hardwood blinds tilted open in a study lined with bookshelves",
     },
     cta: {
-      src: "/images/gen/custom-blinds-cta.jpg",
-      alt: "White faux wood blinds closed for privacy on a bathroom window",
+      src: "/images/work/restaurant-interior-shade.jpg",
+      alt: "Dark woven shade lowered over the entrance glazing of a restaurant, seen from the bar inside",
     },
   },
 };
@@ -136,8 +136,8 @@ export const serviceImagery: Record<string, PageImagery> = {
 export const locationImagery: Record<string, PageImagery> = {
   "bergen-county-nj": {
     feature: {
-      src: "/images/gen/bergen-county-nj-feature.jpg",
-      alt: "Two-storey family room in a Bergen County colonial home with tall windows and soft neutral shades",
+      src: "/images/work/zebra-shades-vaulted-bedroom.jpg",
+      alt: "Zebra shades fitted under the vaulted ceiling of a finished attic bedroom in a single-family home",
     },
     cta: {
       src: "/images/gen/bergen-county-nj-cta.jpg",
@@ -146,8 +146,8 @@ export const locationImagery: Record<string, PageImagery> = {
   },
   "northern-new-jersey": {
     feature: {
-      src: "/images/gen/northern-new-jersey-feature.jpg",
-      alt: "Open-plan living room with sliding patio doors and layered shades framing autumn trees",
+      src: "/images/work/roller-shade-kitchen-window.jpg",
+      alt: "Roller shade fitted above a kitchen window beside cabinetry in a suburban New Jersey home",
     },
     cta: {
       src: "/images/gen/northern-new-jersey-cta.jpg",
@@ -156,8 +156,8 @@ export const locationImagery: Record<string, PageImagery> = {
   },
   "hudson-county-nj": {
     feature: {
-      src: "/images/gen/hudson-county-nj-feature.jpg",
-      alt: "High-rise condo living room with roller shades partly lowered over a river and skyline view",
+      src: "/images/work/zebra-shades-office-windows.jpg",
+      alt: "Zebra shades fitted across a row of office windows above desks in a commercial workspace",
     },
     cta: {
       src: "/images/gen/hudson-county-nj-cta.jpg",
@@ -166,8 +166,8 @@ export const locationImagery: Record<string, PageImagery> = {
   },
   "manhattan-ny": {
     feature: {
-      src: "/images/gen/manhattan-ny-feature.jpg",
-      alt: "Pre-war Manhattan apartment with tall narrow windows dressed in drapery and sheer shades",
+      src: "/images/work/zebra-shades-showroom.jpg",
+      alt: "Zebra shades along a showroom window wall with display cases below, cutting glare at street level",
     },
     cta: {
       src: "/images/gen/manhattan-ny-cta.jpg",
@@ -186,8 +186,8 @@ export const locationImagery: Record<string, PageImagery> = {
   },
   "englewood-nj": {
     feature: {
-      src: "/images/gen/englewood-nj-feature.jpg",
-      alt: "Dining room of an older colonial home with a curved bay of windows and linen Roman shades",
+      src: "/images/work/roller-shade-small-bedroom.jpg",
+      alt: "Roller shade fitted to a small out-of-square bedroom window in an older apartment building",
     },
     cta: {
       src: "/images/gen/englewood-nj-cta.jpg",
@@ -206,8 +206,8 @@ export const locationImagery: Record<string, PageImagery> = {
   },
   "essex-county-nj": {
     feature: {
-      src: "/images/gen/essex-county-nj-feature.jpg",
-      alt: "Victorian-era parlor with a bay window, ornate millwork and shades mounted inside the trim",
+      src: "/images/work/zebra-shade-bedroom-alcove.jpg",
+      alt: "Zebra shade fitted in a period-home bedroom alcove, stopped short of the radiator below",
     },
     cta: {
       src: "/images/gen/essex-county-nj-cta.jpg",
