@@ -193,9 +193,9 @@ function HomePage() {
 
       <RecentWork
         photos={[
-          photoByFile("zebra-shades-vaulted-bedroom"),
-          photoByFile("sheer-shades-bay-window"),
+          photoByFile("sheer-curtains-living-room"),
           photoByFile("restaurant-storefront-shades"),
+          photoByFile("measuring-window-tape"),
         ].filter((p): p is (typeof galleryPhotos)[number] => Boolean(p))}
         eyebrow="Our work"
         title="Recent ModuShade installations."
