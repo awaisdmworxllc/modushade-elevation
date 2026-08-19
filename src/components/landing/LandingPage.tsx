@@ -59,7 +59,8 @@ function LandingHero({ config }: { config: LandingConfig }) {
 
       <div className="container-page relative grid gap-10 py-14 sm:py-20 lg:grid-cols-2 lg:items-center lg:py-24">
         <div className="animate-rise">
-          <p className="eyebrow">{config.eyebrow}</p>
+          <PromoBadge promo={config.promo} onDark />
+          <p className="eyebrow mt-4">{config.eyebrow}</p>
           <h1 className="display-xl mt-4">
             <span className="block">{config.headline}</span>
             <span className="block text-hero-accent">{config.headlineAccent}</span>
