@@ -13,7 +13,10 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CustomDraperyRouteImport } from './routes/custom-drapery'
+import { Route as CustomWindowTreatmentsRouteImport } from './routes/custom-window-treatments'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as MotorizedShadesRouteImport } from './routes/motorized-shades'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
@@ -44,9 +47,24 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CustomDraperyRoute = CustomDraperyRouteImport.update({
+  id: '/custom-drapery',
+  path: '/custom-drapery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomWindowTreatmentsRoute = CustomWindowTreatmentsRouteImport.update({
+  id: '/custom-window-treatments',
+  path: '/custom-window-treatments',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MotorizedShadesRoute = MotorizedShadesRouteImport.update({
+  id: '/motorized-shades',
+  path: '/motorized-shades',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
@@ -100,7 +118,10 @@ export interface FileRoutesByFullPath {
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/custom-drapery': typeof CustomDraperyRoute
+  '/custom-window-treatments': typeof CustomWindowTreatmentsRoute
   '/faq': typeof FaqRoute
+  '/motorized-shades': typeof MotorizedShadesRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
@@ -116,7 +137,10 @@ export interface FileRoutesByTo {
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/custom-drapery': typeof CustomDraperyRoute
+  '/custom-window-treatments': typeof CustomWindowTreatmentsRoute
   '/faq': typeof FaqRoute
+  '/motorized-shades': typeof MotorizedShadesRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
@@ -133,7 +157,10 @@ export interface FileRoutesById {
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/custom-drapery': typeof CustomDraperyRoute
+  '/custom-window-treatments': typeof CustomWindowTreatmentsRoute
   '/faq': typeof FaqRoute
+  '/motorized-shades': typeof MotorizedShadesRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
@@ -151,7 +178,10 @@ export interface FileRouteTypes {
     | '/$'
     | '/about'
     | '/contact'
+    | '/custom-drapery'
+    | '/custom-window-treatments'
     | '/faq'
+    | '/motorized-shades'
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms'
@@ -167,7 +197,10 @@ export interface FileRouteTypes {
     | '/$'
     | '/about'
     | '/contact'
+    | '/custom-drapery'
+    | '/custom-window-treatments'
     | '/faq'
+    | '/motorized-shades'
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms'
@@ -183,7 +216,10 @@ export interface FileRouteTypes {
     | '/$'
     | '/about'
     | '/contact'
+    | '/custom-drapery'
+    | '/custom-window-treatments'
     | '/faq'
+    | '/motorized-shades'
     | '/privacy-policy'
     | '/sitemap.xml'
     | '/terms'
@@ -200,7 +236,10 @@ export interface RootRouteChildren {
   SplatRoute: typeof SplatRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  CustomDraperyRoute: typeof CustomDraperyRoute
+  CustomWindowTreatmentsRoute: typeof CustomWindowTreatmentsRoute
   FaqRoute: typeof FaqRoute
+  MotorizedShadesRoute: typeof MotorizedShadesRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
@@ -242,11 +281,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/custom-drapery': {
+      id: '/custom-drapery'
+      path: '/custom-drapery'
+      fullPath: '/custom-drapery'
+      preLoaderRoute: typeof CustomDraperyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/custom-window-treatments': {
+      id: '/custom-window-treatments'
+      path: '/custom-window-treatments'
+      fullPath: '/custom-window-treatments'
+      preLoaderRoute: typeof CustomWindowTreatmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/faq': {
       id: '/faq'
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/motorized-shades': {
+      id: '/motorized-shades'
+      path: '/motorized-shades'
+      fullPath: '/motorized-shades'
+      preLoaderRoute: typeof MotorizedShadesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy-policy': {
@@ -320,7 +380,10 @@ const rootRouteChildren: RootRouteChildren = {
   SplatRoute: SplatRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  CustomDraperyRoute: CustomDraperyRoute,
+  CustomWindowTreatmentsRoute: CustomWindowTreatmentsRoute,
   FaqRoute: FaqRoute,
+  MotorizedShadesRoute: MotorizedShadesRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
