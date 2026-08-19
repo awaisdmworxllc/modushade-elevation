@@ -42,9 +42,9 @@ const homeFaqs = [
 export const Route = createFileRoute("/")({
   head: () => {
     const base = pageMeta({
-      title: "Custom Window Treatments in Bergen County NJ & NYC | ModuShade",
+      title: "Premium Custom Window Treatments in New Jersey | ModuShade",
       description:
-        "Motorized shades, blinds and custom drapery, measured and installed by ModuShade. Free in-home consultation across Bergen County, Northern NJ, Hudson County and Manhattan.",
+        "Premium custom shades, blinds, drapery and motorized window treatments in New Jersey. Free in-home consultation across Bergen County, Northern NJ and Manhattan.",
       path: "/",
       image: "/images/shades-hero.jpg",
     });
