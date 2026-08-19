@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CustomDraperyRouteImport } from './routes/custom-drapery'
 import { Route as CustomWindowTreatmentsRouteImport } from './routes/custom-window-treatments'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as MotorizedShadesRouteImport } from './routes/motorized-shades'
@@ -44,6 +45,11 @@ const AboutRoute = AboutRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomDraperyRoute = CustomDraperyRouteImport.update({
+  id: '/custom-drapery',
+  path: '/custom-drapery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CustomWindowTreatmentsRoute = CustomWindowTreatmentsRouteImport.update({
@@ -112,6 +118,7 @@ export interface FileRoutesByFullPath {
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/custom-drapery': typeof CustomDraperyRoute
   '/custom-window-treatments': typeof CustomWindowTreatmentsRoute
   '/faq': typeof FaqRoute
   '/motorized-shades': typeof MotorizedShadesRoute
@@ -130,6 +137,7 @@ export interface FileRoutesByTo {
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/custom-drapery': typeof CustomDraperyRoute
   '/custom-window-treatments': typeof CustomWindowTreatmentsRoute
   '/faq': typeof FaqRoute
   '/motorized-shades': typeof MotorizedShadesRoute
@@ -149,6 +157,7 @@ export interface FileRoutesById {
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/custom-drapery': typeof CustomDraperyRoute
   '/custom-window-treatments': typeof CustomWindowTreatmentsRoute
   '/faq': typeof FaqRoute
   '/motorized-shades': typeof MotorizedShadesRoute
@@ -169,6 +178,7 @@ export interface FileRouteTypes {
     | '/$'
     | '/about'
     | '/contact'
+    | '/custom-drapery'
     | '/custom-window-treatments'
     | '/faq'
     | '/motorized-shades'
@@ -187,6 +197,7 @@ export interface FileRouteTypes {
     | '/$'
     | '/about'
     | '/contact'
+    | '/custom-drapery'
     | '/custom-window-treatments'
     | '/faq'
     | '/motorized-shades'
@@ -205,6 +216,7 @@ export interface FileRouteTypes {
     | '/$'
     | '/about'
     | '/contact'
+    | '/custom-drapery'
     | '/custom-window-treatments'
     | '/faq'
     | '/motorized-shades'
@@ -224,6 +236,7 @@ export interface RootRouteChildren {
   SplatRoute: typeof SplatRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  CustomDraperyRoute: typeof CustomDraperyRoute
   CustomWindowTreatmentsRoute: typeof CustomWindowTreatmentsRoute
   FaqRoute: typeof FaqRoute
   MotorizedShadesRoute: typeof MotorizedShadesRoute
@@ -266,6 +279,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/custom-drapery': {
+      id: '/custom-drapery'
+      path: '/custom-drapery'
+      fullPath: '/custom-drapery'
+      preLoaderRoute: typeof CustomDraperyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/custom-window-treatments': {
@@ -360,6 +380,7 @@ const rootRouteChildren: RootRouteChildren = {
   SplatRoute: SplatRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  CustomDraperyRoute: CustomDraperyRoute,
   CustomWindowTreatmentsRoute: CustomWindowTreatmentsRoute,
   FaqRoute: FaqRoute,
   MotorizedShadesRoute: MotorizedShadesRoute,
