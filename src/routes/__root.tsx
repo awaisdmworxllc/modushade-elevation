@@ -164,6 +164,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(localBusinessJsonLd) },
+      { type: "application/ld+json", children: JSON.stringify(webSiteJsonLd) },
       // Google Tag Manager — loads only once VITE_GTM_ID is set, so Core Web
       // Vitals stay untouched until the container ID is added.
       ...(GTM_ID
