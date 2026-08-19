@@ -77,12 +77,20 @@ function LandingHero({ config }: { config: LandingConfig }) {
               </li>
             ))}
           </ul>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-7 rounded-2xl border border-primary/40 bg-ink/55 p-5 backdrop-blur-sm">
+            <p className="display-md text-xl text-hero-accent sm:text-2xl">
+              {config.promo.highlight}
+            </p>
+            <p className="mt-2 text-sm text-ink-foreground/85 sm:text-base">
+              {config.promo.support}
+            </p>
+          </div>
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             <a
               href="#consultation"
               className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-4 text-sm font-bold text-primary-foreground shadow-lift transition hover:-translate-y-0.5"
             >
-              Schedule Your Free Consultation
+              {config.promo.cta}
             </a>
             <LandingActions location="landing_hero" onDark />
           </div>
