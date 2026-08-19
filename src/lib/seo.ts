@@ -6,10 +6,10 @@ type MetaEntry = Record<string, string>;
  * preview/Vercel hosts never get indexed as the canonical version. */
 const ORIGIN = site.domain.replace(/\/$/, "");
 
-/** Absolute production URL for a site-relative path (no trailing slash). */
+/** Absolute production URL for a site-relative path (root keeps its slash). */
 export function absoluteUrl(path: string) {
-  const clean = path === "/" ? "" : path.replace(/\/$/, "");
-  return `${ORIGIN}${clean}` || `${ORIGIN}/`;
+  if (path === "/" || path === "") return `${ORIGIN}/`;
+  return `${ORIGIN}${path.replace(/\/$/, "")}`;
 }
 
 /**
