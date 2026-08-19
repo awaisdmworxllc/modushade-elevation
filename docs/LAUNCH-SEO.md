@@ -262,3 +262,53 @@ everywhere.
 In place now: homepage value bar and the CTA block that appears on service,
 location and content pages ("Free in-home consultation · Free professional
 installation"). Deliberately not repeated in every section.
+
+---
+
+## SEO-only optimization pass (technical audit)
+
+**Canonical / preferred domain.** Every indexable page now emits an absolute
+self-referencing canonical on `https://modu-shade.com` (see `absoluteUrl()` in
+`src/lib/seo.ts`), so preview and Vercel hosts can never be indexed as the
+canonical version. `og:url` matches the canonical exactly. Paths have no
+trailing slash (the homepage is `https://modu-shade.com/`), which keeps
+trailing-slash behaviour consistent with the routes and the sitemap.
+HTTP→HTTPS and www→non-www must be enforced at the host (Vercel domain
+settings) — that is a DNS/host toggle, not a code change.
+
+**Titles / descriptions.** Unique per page. Homepage now targets the primary
+business intent: *Premium Custom Window Treatments in New Jersey | ModuShade*.
+Motorized Shades keeps the strongest treatment (dedicated title, description,
+H1, Service + FAQ + Breadcrumb schema, highest sitemap priority).
+
+**Headings.** One H1 per route (verified across all routes), H2/H3 hierarchy
+comes from the section components — no heading used purely for styling.
+
+**Schema implemented.**
+- `HomeAndConstructionBusiness` (LocalBusiness) + `WebSite` sitewide, in
+  `src/routes/__root.tsx`. No aggregateRating is emitted — Google reviews load
+  dynamically, so a hard-coded rating would be misleading.
+- `Service` on each service page, `BreadcrumbList` on service, area, project
+  and index pages, `FAQPage` only where FAQs are actually visible.
+
+**Sitemap.** `https://modu-shade.com/sitemap.xml`, generated server-side from
+the route data. Canonical, indexable URLs only — the three Google Ads landing
+pages (`/motorized-shades`, `/custom-drapery`, `/custom-window-treatments`)
+stay out because they are `noindex, follow`, and redirected legacy URLs are
+excluded. `<lastmod>` is intentionally omitted: there is no per-page content
+timestamp to report, and a build-time date would be a false signal.
+
+**Robots.** `public/robots.txt` allows all crawlers (no CSS/JS/image blocks)
+and points at the production sitemap.
+
+**Redirects.** Legacy `modu-shade.com` URLs 301 to their closest equivalent via
+`src/data/redirects.ts` + `src/routes/$.tsx` (case-insensitive, with or without
+`.html`/trailing slash). Nothing is redirected to the homepage.
+
+**Performance.** Hero images carry explicit `width`/`height` plus
+`fetchpriority="high"` on the page hero (LCP), below-the-fold images stay
+`loading="lazy"`; the homepage video is untouched and still poster-first.
+
+**ACTION (needs you).** Search Console verification — verify via DNS or the
+existing GTM container, or paste the HTML-tag token where indicated in
+`src/routes/__root.tsx`. No token was invented.
