@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -16,6 +17,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { site } from "@/data/site";
 import { captureLeadSource, GTM_ID } from "@/lib/analytics";
 import { reviews } from "@/data/reviews";
+import { landingPaths } from "@/data/landing";
 
 function NotFoundComponent() {
   return (
