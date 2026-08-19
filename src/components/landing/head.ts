@@ -18,11 +18,11 @@ export function landingHead(config: LandingConfig) {
       { property: "og:title", content: config.title },
       { property: "og:description", content: config.description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: config.path },
+      { property: "og:url", content: url },
       { property: "og:image", content: `${site.domain}${config.heroImage.src}` },
       { name: "twitter:image", content: `${site.domain}${config.heroImage.src}` },
     ],
-    links: [{ rel: "canonical", href: config.path }],
+    links: [{ rel: "canonical", href: url }],
     scripts: [
       {
         type: "application/ld+json",
