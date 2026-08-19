@@ -87,7 +87,7 @@ function LandingHero({ config }: { config: LandingConfig }) {
         </div>
 
         <div className="hidden lg:block">
-          <div className="rounded-2xl border border-ink-foreground/15 bg-ink/60 p-6 backdrop-blur-sm">
+          <div className="rounded-2xl border border-ink-foreground/15 bg-ink/60 p-6 text-foreground backdrop-blur-sm">
             <LandingLeadForm
               idPrefix="hero-form"
               formName={`${config.path}#hero`}
