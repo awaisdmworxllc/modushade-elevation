@@ -15,11 +15,15 @@ export function LandingLeadForm({
   formName,
   interestOptions,
   title,
+  /** Unique per rendered form so hero and in-page forms never share input ids. */
+  idPrefix,
 }: {
   formName: string;
   interestOptions: string[];
   title: string;
+  idPrefix: string;
 }) {
+  const fieldId = (name: string) => `${idPrefix}-${name}`;
   const [sent, setSent] = useState(false);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -53,7 +57,7 @@ export function LandingLeadForm({
   if (sent) {
     return (
       <div
-        id="consultation-success"
+        id={`${idPrefix}-success`}
         role="status"
         className="rounded-2xl border border-border bg-card p-7 text-center shadow-elegant sm:p-10"
       >
@@ -99,10 +103,11 @@ export function LandingLeadForm({
       </p>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        <Field label="Name" name="name" required autoComplete="name" />
-        <Field label="Phone" name="phone" type="tel" required autoComplete="tel" inputMode="tel" />
-        <Field label="Email" name="email" type="email" required autoComplete="email" inputMode="email" />
+        <Field id={fieldId("name")} label="Name" name="name" required autoComplete="name" />
+        <Field id={fieldId("phone")} label="Phone" name="phone" type="tel" required autoComplete="tel" inputMode="tel" />
+        <Field id={fieldId("email")} label="Email" name="email" type="email" required autoComplete="email" inputMode="email" />
         <Field
+          id={fieldId("zip")}
           label="ZIP code"
           name="zip"
           required
@@ -111,11 +116,11 @@ export function LandingLeadForm({
           pattern="[0-9]{5}"
         />
         <div className="flex flex-col gap-1.5 sm:col-span-2">
-          <label htmlFor="interest" className="text-xs font-bold tracking-wide uppercase">
+          <label htmlFor={fieldId("interest")} className="text-xs font-bold tracking-wide uppercase">
             Product / project interest
           </label>
           <select
-            id="interest"
+            id={fieldId("interest")}
             name="interest"
             defaultValue={interestOptions[0]}
             className="rounded-lg border border-input bg-background px-4 py-3 text-base outline-none focus:border-primary focus:ring-2 focus:ring-ring/40 sm:text-sm"
@@ -143,6 +148,7 @@ export function LandingLeadForm({
 }
 
 function Field({
+  id,
   label,
   name,
   type = "text",
@@ -151,6 +157,7 @@ function Field({
   inputMode,
   pattern,
 }: {
+  id: string;
   label: string;
   name: string;
   type?: string;
@@ -161,11 +168,11 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={name} className="text-xs font-bold tracking-wide uppercase">
+      <label htmlFor={id} className="text-xs font-bold tracking-wide uppercase">
         {label}
       </label>
       <input
-        id={name}
+        id={id}
         name={name}
         type={type}
         required={required}
