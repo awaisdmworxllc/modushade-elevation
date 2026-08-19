@@ -49,7 +49,7 @@ export function pageMeta({
     meta.push({ property: "og:image", content: absolute });
     meta.push({ name: "twitter:image", content: absolute });
   }
-  return { meta, links: [{ rel: "canonical", href: path }] };
+  return { meta, links: [{ rel: "canonical", href: absoluteUrl(path) }] };
 }
 
 export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
