@@ -302,9 +302,13 @@ export function SiteHeader() {
             <MobileLink to="/about" onDone={() => setOpen(false)}>
               About
             </MobileLink>
+            <MobileLink to="/projects" onDone={() => setOpen(false)}>
+              Our Work
+            </MobileLink>
             <MobileLink to="/faq" onDone={() => setOpen(false)}>
               FAQ
             </MobileLink>
+
             <MobileLink to="/contact" onDone={() => setOpen(false)}>
               Contact
             </MobileLink>
