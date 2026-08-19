@@ -6,6 +6,7 @@ import { reviews, googleAggregate } from "@/data/reviews";
 import { processSteps } from "@/data/site";
 import { LandingActions, LandingFooter, LandingHeader, StickyMobileCta } from "./LandingChrome";
 import { LandingLeadForm } from "./LandingLeadForm";
+import { PromoBadge, PromoStrip } from "./Promo";
 
 /**
  * Reusable, conversion-focused landing page shell.
