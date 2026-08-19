@@ -102,7 +102,9 @@ function LandingHero({ config }: { config: LandingConfig }) {
               idPrefix="hero-form"
               formName={`${config.path}#hero`}
               interestOptions={config.interestOptions}
-              title={config.formTitle}
+              title={config.promo.formTitle}
+              subtitle={config.promo.support}
+              submitLabel={config.promo.cta}
             />
           </div>
         </div>
@@ -317,11 +319,14 @@ function ConsultationBlock({ config }: { config: LandingConfig }) {
           />
         </div>
         <div className="order-1 lg:order-2">
+          <PromoStrip promo={config.promo} />
           <LandingLeadForm
             idPrefix="consultation-form"
             formName={config.path}
             interestOptions={config.interestOptions}
-            title={config.formTitle}
+            title={config.promo.formTitle}
+            subtitle={config.promo.support}
+            submitLabel={config.promo.cta}
           />
         </div>
       </div>
