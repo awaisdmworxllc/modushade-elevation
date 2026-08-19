@@ -110,6 +110,14 @@ const consultation = {
 
 const customWindowTreatments: LandingConfig = {
   path: "/custom-window-treatments",
+  promo: {
+    badge: "SUMMER PROMOTION • SAVE UP TO 25%",
+    highlight: "Save Up to 25%",
+    support: "Save up to 25% on select custom blinds and shades.",
+    cta: "Claim My 25% Discount",
+    stripTitle: "Limited-Time Summer Promotion",
+    formTitle: "Claim Your Summer Promotion",
+  },
   title: "Custom Window Treatments in NJ & NYC | Free In-Home Consultation",
   description:
     "Custom shades, blinds and drapery — professionally measured and installed across Bergen County, Northern NJ, Hudson County and Manhattan. Book a free in-home consultation.",
@@ -248,6 +256,14 @@ const customWindowTreatments: LandingConfig = {
 
 const motorizedShades: LandingConfig = {
   path: "/motorized-shades",
+  promo: {
+    badge: "SUMMER PROMOTION • SAVE UP TO 25%",
+    highlight: "Save Up to 25% on Select Motorized Shades",
+    support: "Save up to 25% on select motorized shades.",
+    cta: "Claim My 25% Discount",
+    stripTitle: "Limited-Time Summer Promotion",
+    formTitle: "Claim Your Summer Promotion",
+  },
   title: "Motorized Shades in NJ & NYC | Remote & App Control | ModuShade",
   description:
     "Custom motorized shades measured and installed across Bergen County, Northern NJ, Hudson County and Manhattan. Battery or hardwired, remote, wall and app control. Free consultation.",
@@ -399,6 +415,14 @@ const motorizedShades: LandingConfig = {
 
 const customDrapery: LandingConfig = {
   path: "/custom-drapery",
+  promo: {
+    badge: "SUMMER PROMOTION • SAVE UP TO 25%",
+    highlight: "Save Up to 25% on Select Custom Drapery",
+    support: "Save up to 25% on select custom drapery and curtains.",
+    cta: "Claim My 25% Discount",
+    stripTitle: "Limited-Time Summer Promotion",
+    formTitle: "Claim Your Summer Promotion",
+  },
   title: "Custom Drapery & Curtains in NJ & NYC | Made to Measure | ModuShade",
   description:
     "Custom-made drapery and curtains — sheers, blackout linings, ripple fold, custom tracks and motorized curtains. Measured and installed across NJ and NYC. Free in-home consultation.",
