@@ -283,11 +283,35 @@ export const galleryCategories: GalleryCategory[] = [
 /** Portfolio photographs — the only ones shown in the /projects grid. */
 export const portfolioPhotos = galleryPhotos.filter((p) => p.use === "gallery");
 
+/** Portfolio photos reserved for the homepage teaser strip. */
+export const homeTeaserFiles = [
+  "sheer-curtains-living-room",
+  "restaurant-storefront-shades",
+  "measuring-window-tape",
+];
+
 /**
- * Portfolio photos that genuinely show a given service. Used for the teaser
- * strip on service pages, so it never repeats that page's own feature/CTA image.
+ * Portfolio photos that genuinely show a given service, claimed exclusively:
+ * each portfolio photo appears in at most one service teaser (and never in the
+ * homepage strip or that page's own feature/CTA image), so nothing repeats
+ * unnecessarily across the site.
  */
+const serviceTeasers: Record<string, GalleryPhoto[]> = (() => {
+  const claimed = new Set(homeTeaserFiles);
+  const map: Record<string, GalleryPhoto[]> = {};
+  const slugs = Array.from(new Set(portfolioPhotos.flatMap((p) => p.serviceSlugs)));
+  for (const slug of slugs) {
+    const picks = portfolioPhotos.filter(
+      (p) => p.serviceSlugs.includes(slug) && !claimed.has(p.file),
+    );
+    if (!picks.length) continue;
+    map[slug] = picks;
+    picks.forEach((p) => claimed.add(p.file));
+  }
+  return map;
+})();
+
 export const photosForService = (slug: string, limit = 3) =>
-  portfolioPhotos.filter((p) => p.serviceSlugs.includes(slug)).slice(0, limit);
+  (serviceTeasers[slug] ?? []).slice(0, limit);
 
 export const photoByFile = (file: string) => galleryPhotos.find((p) => p.file === file);
