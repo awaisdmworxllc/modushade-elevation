@@ -6,6 +6,7 @@ import { reviews, googleAggregate } from "@/data/reviews";
 import { processSteps } from "@/data/site";
 import { LandingActions, LandingFooter, LandingHeader, StickyMobileCta } from "./LandingChrome";
 import { LandingLeadForm } from "./LandingLeadForm";
+import { PromoBadge, PromoStrip } from "./Promo";
 
 /**
  * Reusable, conversion-focused landing page shell.
@@ -59,7 +60,8 @@ function LandingHero({ config }: { config: LandingConfig }) {
 
       <div className="container-page relative grid gap-10 py-14 sm:py-20 lg:grid-cols-2 lg:items-center lg:py-24">
         <div className="animate-rise">
-          <p className="eyebrow">{config.eyebrow}</p>
+          <PromoBadge promo={config.promo} onDark />
+          <p className="eyebrow mt-4">{config.eyebrow}</p>
           <h1 className="display-xl mt-4">
             <span className="block">{config.headline}</span>
             <span className="block text-hero-accent">{config.headlineAccent}</span>
@@ -75,12 +77,20 @@ function LandingHero({ config }: { config: LandingConfig }) {
               </li>
             ))}
           </ul>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-7 rounded-2xl border border-primary/40 bg-ink/55 p-5 backdrop-blur-sm">
+            <p className="display-md text-xl text-hero-accent sm:text-2xl">
+              {config.promo.highlight}
+            </p>
+            <p className="mt-2 text-sm text-ink-foreground/85 sm:text-base">
+              {config.promo.support}
+            </p>
+          </div>
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             <a
               href="#consultation"
               className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-4 text-sm font-bold text-primary-foreground shadow-lift transition hover:-translate-y-0.5"
             >
-              Schedule Your Free Consultation
+              {config.promo.cta}
             </a>
             <LandingActions location="landing_hero" onDark />
           </div>
@@ -92,7 +102,9 @@ function LandingHero({ config }: { config: LandingConfig }) {
               idPrefix="hero-form"
               formName={`${config.path}#hero`}
               interestOptions={config.interestOptions}
-              title={config.formTitle}
+              title={config.promo.formTitle}
+              subtitle={config.promo.support}
+              submitLabel={config.promo.cta}
             />
           </div>
         </div>
@@ -307,11 +319,14 @@ function ConsultationBlock({ config }: { config: LandingConfig }) {
           />
         </div>
         <div className="order-1 lg:order-2">
+          <PromoStrip promo={config.promo} />
           <LandingLeadForm
             idPrefix="consultation-form"
             formName={config.path}
             interestOptions={config.interestOptions}
-            title={config.formTitle}
+            title={config.promo.formTitle}
+            subtitle={config.promo.support}
+            submitLabel={config.promo.cta}
           />
         </div>
       </div>

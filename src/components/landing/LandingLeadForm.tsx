@@ -15,12 +15,17 @@ export function LandingLeadForm({
   formName,
   interestOptions,
   title,
+  subtitle,
+  submitLabel = "Schedule My Free Consultation",
   /** Unique per rendered form so hero and in-page forms never share input ids. */
   idPrefix,
 }: {
   formName: string;
   interestOptions: string[];
   title: string;
+  /** Optional supporting line, e.g. the seasonal promotion copy. */
+  subtitle?: string;
+  submitLabel?: string;
   idPrefix: string;
 }) {
   const fieldId = (name: string) => `${idPrefix}-${name}`;
@@ -99,7 +104,8 @@ export function LandingLeadForm({
       <p className="eyebrow">Free in-home consultation</p>
       <h2 className="display-md mt-3 text-2xl">{title}</h2>
       <p className="mt-2 text-sm text-muted-foreground">
-        Five quick details and we will arrange a visit with samples. Or call {site.phone}.
+        {subtitle ? `${subtitle} ` : ""}Five quick details and we will arrange a visit with samples. Or
+        call {site.phone}.
       </p>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -138,7 +144,7 @@ export function LandingLeadForm({
         type="submit"
         className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-7 py-4 text-sm font-bold text-primary-foreground shadow-lift transition hover:-translate-y-0.5"
       >
-        Schedule My Free Consultation
+        {submitLabel}
       </button>
       <p className="mt-3 text-xs text-muted-foreground">
         No obligation. We never share your details.
