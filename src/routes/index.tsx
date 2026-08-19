@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { HeroVideo } from "@/components/site/HeroVideo";
+import { RecentWork } from "@/components/site/RecentWork";
 import { ConsultationForm } from "@/components/site/ConsultationForm";
 import {
   CallLinks,
@@ -14,6 +15,7 @@ import {
   TrustBar,
 } from "@/components/site/ui";
 import { services, serviceGroups } from "@/data/services";
+import { galleryPhotos, photoByFile } from "@/data/gallery";
 import { coreLocations } from "@/data/locations";
 import { processSteps, site } from "@/data/site";
 import { faqJsonLd, pageMeta } from "@/lib/seo";
@@ -188,6 +190,18 @@ function HomePage() {
           ))}
         </ol>
       </Section>
+
+      <RecentWork
+        photos={[
+          photoByFile("zebra-shades-vaulted-bedroom"),
+          photoByFile("sheer-shades-bay-window"),
+          photoByFile("restaurant-storefront-shades"),
+        ].filter((p): p is (typeof galleryPhotos)[number] => Boolean(p))}
+        eyebrow="Our work"
+        title="Recent ModuShade installations."
+        body="Real photographs from finished jobs — homes, apartments and businesses across Northern New Jersey and New York."
+        tone="paper"
+      />
 
       <ReviewsSection />
 

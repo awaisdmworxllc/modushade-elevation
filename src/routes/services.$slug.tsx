@@ -1,6 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { VisualCta } from "@/components/site/VisualCta";
 import { DetailSections } from "@/components/site/DetailSections";
+import { RecentWork } from "@/components/site/RecentWork";
+import { photosForService } from "@/data/gallery";
 import {
   BulletList,
   CtaSection,
@@ -21,7 +23,13 @@ export const Route = createFileRoute("/services/$slug")({
     if (!service) throw notFound();
     const detail = getServiceDetail(params.slug);
     const faqs = [...service.faqs, ...(detail?.extraFaqs ?? [])];
-    return { service, detail, faqs, imagery: getServiceImagery(params.slug) };
+    return {
+      service,
+      detail,
+      faqs,
+      imagery: getServiceImagery(params.slug),
+      workPhotos: photosForService(params.slug, 3),
+    };
   },
   head: ({ params, loaderData }) => {
     const service = loaderData?.service;
@@ -57,7 +65,7 @@ export const Route = createFileRoute("/services/$slug")({
 });
 
 function ServicePage() {
-  const { service, detail, faqs, imagery } = Route.useLoaderData();
+  const { service, detail, faqs, imagery, workPhotos } = Route.useLoaderData();
   const crumbs = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
@@ -151,6 +159,13 @@ function ServicePage() {
       </Section>
 
       {detail ? <DetailSections sections={detail.sections} /> : null}
+
+      <RecentWork
+        photos={workPhotos}
+        eyebrow="Our work"
+        title={`${service.name} we have installed.`}
+        body="Photographs from finished ModuShade jobs, not stock images."
+      />
 
 
       <Section tone="sand">

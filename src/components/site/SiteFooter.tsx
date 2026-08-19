@@ -66,6 +66,12 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link to="/projects" className="hover:text-primary">
+                Our Work
+              </Link>
+            </li>
+
+            <li>
               <Link
                 to="/services/$slug"
                 params={{ slug: "motorized-shades" }}

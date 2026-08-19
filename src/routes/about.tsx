@@ -21,7 +21,7 @@ export const Route = createFileRoute("/about")({
       description:
         "ModuShade is a local window treatment company based in Cresskill, NJ, offering honest recommendations, precise measuring and professional installation across NJ and NYC.",
       path: "/about",
-      image: "/images/gen/consultation-samples.jpg",
+      image: "/images/work/installer-bay-window-shades.jpg",
     }),
     scripts: [breadcrumbJsonLd(crumbs)],
   }),
@@ -35,8 +35,8 @@ function AboutPage() {
         eyebrow="About ModuShade"
         title="A local team that treats your home like a home"
         lead={`Based in ${site.address.locality}, ${site.address.region}. One team from the first consultation to the final adjustment — no subcontracted installers, no pressure to buy the most expensive option.`}
-        image="/images/gen/consultation-samples.jpg"
-        imageAlt="Installer fitting a custom shade at a residential window"
+        image="/images/work/installer-bay-window-shades.jpg"
+        imageAlt="ModuShade installer adjusting a newly fitted shade in a bay window"
         breadcrumbs={crumbs}
       />
       <Section>
