@@ -175,10 +175,25 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  // Paid landing pages render their own simplified, conversion-focused chrome
+  // (logo + Call + WhatsApp + Free Consultation) instead of the site nav.
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isLanding = landingPaths.some(
+    (path) => pathname === path || pathname === `${path}/`,
+  );
 
   useEffect(() => {
     captureLeadSource();
   }, []);
+
+  if (isLanding) {
+    return (
+      <QueryClientProvider client={queryClient}>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </QueryClientProvider>
+    );
+  }
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -190,10 +205,10 @@ function RootComponent() {
       </a>
       <SiteHeader />
       <main id="main">
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
       </main>
       <SiteFooter />
     </QueryClientProvider>
   );
 }
+
