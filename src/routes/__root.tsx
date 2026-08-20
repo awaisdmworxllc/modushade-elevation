@@ -15,7 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { site } from "@/data/site";
-import { captureLeadSource, GTM_ID } from "@/lib/analytics";
+import { captureLeadSource } from "@/lib/analytics";
 import { reviews } from "@/data/reviews";
 import { landingPaths } from "@/data/landing";
 
@@ -151,6 +151,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:locale", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#171317" },
+      {
+        name: "google-site-verification",
+        content: "VrUjJRTjWQeGCvwwRk8kkTg5r-PB_KqFQuL6lGJf3k0",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -165,15 +169,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(localBusinessJsonLd) },
       { type: "application/ld+json", children: JSON.stringify(webSiteJsonLd) },
-      // Google Tag Manager — loads only once VITE_GTM_ID is set, so Core Web
-      // Vitals stay untouched until the container ID is added.
-      ...(GTM_ID
-        ? [
-            {
-              children: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`,
-            },
-          ]
-        : []),
+      // Google Tag Manager — head snippet.
+      {
+        children: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W88NTJ2X');`,
+      },
     ],
 
   }),
@@ -190,6 +193,16 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-W88NTJ2X"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
         {children}
         <Scripts />
       </body>
